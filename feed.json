@@ -1,0 +1,112 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "reuBlog",
+    "description": "",
+    "home_page_url": "https://marlinspike.github.io",
+    "feed_url": "https://marlinspike.github.io/feed.json",
+    "user_comment": "",
+    "icon": "https://marlinspike.github.io/media/website/borneo.jpg",
+    "author": {
+        "name": "Reuben Cleetus"
+    },
+    "items": [
+        {
+            "id": "https://marlinspike.github.io/setting-a-vm-custom-script-extension-via-azure-devops/",
+            "url": "https://marlinspike.github.io/setting-a-vm-custom-script-extension-via-azure-devops/",
+            "title": "Setting a VM Custom Script Extension via Azure DevOps",
+            "summary": "Azure Custom Script Extension (CSE) provides the facilities to download and run custom PowerShell scripts on an Azure VM, using the Azure VM Agent that's installed by default on all images originating from the Microsoft Azure marketplace. It's possible to install the agent on a&hellip;",
+            "content_html": "<p>Azure Custom Script Extension (CSE) provides the facilities to download and run custom PowerShell scripts on an Azure VM, using the Azure VM Agent that's installed by default on all images originating from the Microsoft Azure marketplace. It's possible to install the agent on a custom OS Image that you bring to Azure as well.</p>\n<p>CSE is typically configured to download scripts from Azure Blob Storage, but it can just as easily be any URI that's routable by the VM (GitHub, for example). In our discussion here, I'm going to show you how to configure and install it via Azure DevOps, and for that, there are three distinct parts to configure:</p>\n<ul>\n<li>Azure DevOps Pipeline - An Azure PowerShell task in the Devops Pipeline is used to call the PowerShell script to set the CSE</li>\n<li>Blob Storage - The script itself is hosted in Blob storage, and in this case, uses <em>container</em> access level (anonymous read access)</li>\n<li> The script itself, which runs on the VM</li>\n</ul>\n<p>Let's get started.</p>\n<p> </p>\n<p><strong>Step 1 - Prepare your script to run when the CSE is applied</strong></p>\n<p>For my script, I've prepared a simplistic example that takes a single parameter and prints it out to a file, appropriately named \"helloworld.txt\", at the C:\\ root. Pay attention to the name you give the file, because you'll need it later to configure the CSE. Here's the script:</p>\n<div>\n<div><code>param(</code></div>\n<div><code>[parameter(Position=0,Mandatory=$false)][string]$key1=\"ole!\"</code></div>\n<div><code>)</code></div>\n<br>\n<div><code>New-Item -Path \"c:\\\" -Name \"helloworld.txt\" -ItemType \"file\" -Value \"Key1: $key1\" -Force</code></div>\n</div>\n<p><strong>Note:</strong> The script must accept positional parameters, as shown above, and you can of course set it to a default value, as I've done.</p>\n<p> </p>\n<p><strong>Step 2 - Upload the script to a Container within a Storage Account</strong></p>\n<p> Now you've got your script, but it needs to be made available to the VM when the CSE is applied. To do that, a common pattern is to upload it to a Storage Account, but you could just as well use any URI that's routable by the VM, such as GitHub.</p>\n<figure class=\"post__image post__image\" ><img src=\"https://marlinspike.github.io/media/posts/7/storageAccount1.png\" alt=\"\" width=\"1173\" height=\"134\">\n<figcaption >The scripts container in the storage account is set to Container access level</figcaption>\n</figure>\n<p>Here, I've uploaded the scripts to the <em>scripts</em> container within my storage account. The container is set to Container access, so that the VM can access the files without the need for a SAS token. It's entirely appropriate to use a SAS token for production use, and you should probably do that.</p>\n<p> </p>\n<p><strong>Step 3 - Azure DevOps Pipeline</strong></p>\n<p>First off, we'll set up a task to run after the VM is created. In this case, as the picture below shows, there's an ARM template the runs to set up a VM, and we'll configure an Azure PowerShell task right after.</p>\n<p>1. Search for the Azure PowerShell task in the <em>Add Tasks</em> blade, and add it to the build pipeline:</p>\n<figure class=\"post__image post__image\" ><img src=\"https://marlinspike.github.io/media/posts/7/pipeline3.png\" alt=\"\" width=\"853\" height=\"157\">\n<figcaption >Search for the Azure PowerShell Task and add it to the build pipeline</figcaption>\n</figure>\n<p>2. Once you've added the task to the pipeline, its time to conifigure the properties in the options blade, by clicking on the task.</p>\n<figure class=\"post__image post__image\" ><img src=\"https://marlinspike.github.io/media/posts/7/pipeline.png\" alt=\"DevOps pipeline\" width=\"637\" height=\"280\">\n<figcaption >DevOps pipeline</figcaption>\n</figure>\n<p> </p>\n<p>Pay attention below to the <em>Inline Script </em>section, where the <span style=\"text-decoration: underline;\">Set-AzureRmVMCustomScriptExtension</span> PowerShell command is used to set a CSE on the VM, and in this case, it's called \"test-script\". Note that you can only have a single CSE attached to a VM; attaching a second throws an error. You can re-attach any other PowerShell to the VM, as long as you use the same <em>-Name </em>parameter, so that the script simply installs on top of itself.</p>\n<p>Here's the customizations I made in DevOps for the Azure PowerShell Task:</p>\n<figure class=\"post__image post__image\" ><img src=\"https://marlinspike.github.io/media/posts/7/pipeline2.png\" alt=\"\" width=\"849\" height=\"952\">\n<figcaption >Azure PowerShell task options</figcaption>\n</figure>\n<p>Here's the full inline script:</p>\n<p><code>Set-AzureRmVMCustomScriptExtension -ResourceGroupName \"astadia-dev\" -Location \"usgovvirginia\" -VMName \"vm-imds-0\" -Name \"test-script\" -TypeHandlerVersion \"1.1\" -StorageAccountName $(storageAccountName) -StorageAccountKey $(storageAccountKey) -FileName \"helloworld_vm_0.ps1\" -ContainerName $(containerName) -Run \"helloworld_vm_0.ps1\" -Argument \"Hello_From_DevOps!\" </code></p>\n<p>What all the parameters mean:</p>\n<ul>\n<li>Location - This is the region where your VM is deployed. In my case, it's usgovvirginia</li>\n<li>VMName - The name of your VM</li>\n<li>Name - That's the name you'll use to identify the CSE when it's attached to your VM. You can see this in the Portal by clicking on the <em>Extensions</em> item in the VM blade</li>\n<li>StorageAccountName - The storage account where your script(s) are uploaded</li>\n<li>FileName - One or more files (comma separated), which the CSE should download to your VM</li>\n<li>FileName - This is the file to execute when the CSE runs. There can only be a single executable file.</li>\n<li>Argument - The argument to pass to your script. If you'd like to pass multiple parameters, list them in a comma separated string without any spaces, and split the string in your script.</li>\n</ul>\n<p>It's important to remember that a CSE runs a script just one, at the time of binding. In doing so, it downloads all the files specified by the <em>-FileName</em> parameter. In this case, I've only listed one file, but you can have as many comma separated files as you'd like, and they'd all get downloaded to the VM before the file specified by the <em>-Run</em> command gets run. That file is the single entry point to the CSE.</p>\n<p> </p>\n<p><strong>Step 4 - Run the pipeline</strong></p>\n<p>Running the pipeline sets the CSE, which downloads the files(s) you configured to the VM. If all goes well, your pipeline execution should succeed, and if you navigate to the VM blade in the Portal and select <em>Extensions</em>, you should see your script applied on the VM.</p>\n<p> </p>\n<p><strong>Step 4 - Validate that the script ran</strong></p>\n<p>At the Portal, select the VM, and then the <em>Extensions</em> menu item on the VM blade. You should see your CSE applied, as shown below:</p>\n<figure class=\"post__image post__image\" ><img src=\"https://marlinspike.github.io/media/posts/7/cseSucceeded.png\" alt=\"\" width=\"1115\" height=\"366\">\n<figcaption >Custom Script Extension provisioning succeeded </figcaption>\n</figure>\n<p>Now RDP into the VM, open File Explorer, and check the C:\\ root, and you should see a file called <em>helloworld.txt</em>, which was created by the script when it ran.</p>\n<figure class=\"post__image post__image\" ><img src=\"https://marlinspike.github.io/media/posts/7/cseSucceeded2.png\" alt=\"\" width=\"767\" height=\"233\">\n<figcaption >Filesystem on target VM shows the file created</figcaption>\n</figure>\n<p>And here's what the file looks like:</p>\n<figure class=\"post__image post__image\" ><img src=\"https://marlinspike.github.io/media/posts/7/cseSucceeded3.png\" alt=\"\" width=\"269\" height=\"104\">\n<figcaption >File Created by CSE</figcaption>\n</figure>",
+            "author": {
+                "name": "Reuben Cleetus"
+            },
+            "tags": [
+            ],
+            "date_published": "2019-05-26T19:51:18-04:00",
+            "date_modified": "2019-05-27T10:12:33-04:00"
+        },
+        {
+            "id": "https://marlinspike.github.io/welcome-to-reublog/",
+            "url": "https://marlinspike.github.io/welcome-to-reublog/",
+            "title": "Welcome to reuBlog",
+            "summary": " Hello and welcome to reuBlog, a blog by Reuben Cleetus about the cloud, AI and automation technology I work with, life and all that's intersting. ",
+            "content_html": "<div>\n<div><img class=\"post__image--wide\" src=\"https://marlinspike.github.io/media/posts/1/starting_something_new.jpg\" alt=\"\" width=\"849\" height=\"419\"></div>\n<div> </div>\n<div><strong>Hello</strong> and welcome to reuBlog, a blog by Reuben Cleetus about the cloud, AI and automation technology I work with, life and all that's intersting.</div>\n</div>\n<div> </div>\n<div> </div>",
+            "author": {
+                "name": "Reuben Cleetus"
+            },
+            "tags": [
+            ],
+            "date_published": "2019-05-24T16:30:34-04:00",
+            "date_modified": "2019-05-24T17:18:15-04:00"
+        },
+        {
+            "id": "https://marlinspike.github.io/create-a-failover-group-and-add-an-azure-sql-db-to-it/",
+            "url": "https://marlinspike.github.io/create-a-failover-group-and-add-an-azure-sql-db-to-it/",
+            "title": "Create a Failover Group and add an Azure SQL DB to it",
+            "summary": "Failover Groups (FG) are one of the features of Azure SQL that sprinkle magic dust upon it -- set one up, add a database to it, and you're automatically replicating to a remote region of your choice, and can failover at will if you like.",
+            "content_html": "<div>Failover Groups (FG) are one of the features of Azure SQL that sprinkle magic dust upon it -- set one up, add a database to it, and you're automatically replicating to a remote region of your choice, and can failover at will if you like. An FG requires a Primary and a Secondard server: The primary is easy -- it's the one the databas(es) you want to protect are hosted on; the secondard is any other database in any other region (must be another region), where you want the FG to asynchronously replicate your database to, and where you'd like to automatically failover to if the primary region were to become unavailable.</div>\n<br>\n<div>It's pretty easy to go about creating an FG, and these steps below walk you through it:</div>\n<div> </div>\n<div><code>#Create failover group</code></div>\n<div><code>az sql failover-group create --name myfailovergroup --server myprimarydbserver --partner-server mysecondarydbserver --resource-group myRG</code></div>\n<br>\n<div><code>#Add existing DB to the failover group</code></div>\n<div><code>az sql failover-group update -n myfailovergroup --resource-group myRG --server myprimarydbserver --add-db db_test</code></div>\n<div> </div>\n<div>And that's it. Modify the script to suit the specific names of resources you have, and you're good to go. The FG jumps to life immediately and starts asynchronously replicating data to the secondary region, and you'll be able to even simulate a failover once that's done. Remember, the first time will likely take you the longest to replicate, as it's basically moving all the data from primary to secondary.</div>",
+            "author": {
+                "name": "Reuben Cleetus"
+            },
+            "tags": [
+            ],
+            "date_published": "2019-04-26T17:05:00-04:00",
+            "date_modified": "2019-05-26T15:17:21-04:00"
+        },
+        {
+            "id": "https://marlinspike.github.io/azure-cli-tools-for-vscode/",
+            "url": "https://marlinspike.github.io/azure-cli-tools-for-vscode/",
+            "title": "Azure CLI Tools for VSCode",
+            "summary": "Coding in Azure CLI just got a lot easier with the Azure CLI tools for VSCode. Azure CLI used to be a better experience on Mac and Linux than it was on Windows, but the CLI tools makes it an amazing cross-platform experience. To set&hellip;",
+            "content_html": "<p>Coding in Azure CLI just got a lot easier with the Azure CLI tools for VSCode. Azure CLI used to be a better experience on Mac and Linux than it was on Windows, but the CLI tools makes it an amazing cross-platform experience. To set up:</p>\n<ul>\n<li>Add the <strong>Azure CLI Tools</strong> extension</li>\n<li>Create a file with the extension <strong>.azcli</strong>.</li>\n<li>Now write any CLI code you’d like, and you can execute code right from inside VSCode, and see the results in console.</li>\n</ul>\n<p>Help is built right in, with intellisense code completion and hover-assist, and subscription-specific info right from your account. You’ll wonder how you did without it!</p>",
+            "author": {
+                "name": "Reuben Cleetus"
+            },
+            "tags": [
+            ],
+            "date_published": "2019-04-12T18:44:00-04:00",
+            "date_modified": "2019-05-24T17:18:03-04:00"
+        },
+        {
+            "id": "https://marlinspike.github.io/containerize-a-dotnet-core-app-and-run-it-on-azure-web-apps/",
+            "url": "https://marlinspike.github.io/containerize-a-dotnet-core-app-and-run-it-on-azure-web-apps/",
+            "title": "Containerize a Dotnet Core App, and run it on Azure Container Instances",
+            "summary": "Whether you're a Docker pro or just learning about it, you're doubtless come across scenarios for migrating demo apps to a Docker container running your development box. That's fine, but how about getting some more mileage and seeing it run in the cloud, as a&hellip;",
+            "content_html": "<p>Whether you're a Docker pro or just learning about it, you're doubtless come across scenarios for migrating demo apps to a Docker container running your development box. That's fine, but how about getting some more mileage and seeing it run in the cloud, as a PaaS app, where you've now taken advantage of Docker goodness to abstract away environment prep, and added Platform goodness by abstracting away all envrionment management too.</p>\n<p>Lets dive right into it with a short and sweet recipe for all  your Dotnet Core apps!</p>\n<p>The tools we're going to use:</p>\n<ul>\n<li><span style=\"text-decoration: underline;\">Docker</span> - Create the Docker image. We're going to use multi-stage builds, so you'd need to be on Docker 17.05 or later</li>\n<li><span style=\"text-decoration: underline;\">Azure Container Registry</span> - Host the Docker image in Azure. You can use Docker Hub too, just change the appropriate URLs</li>\n<li><span style=\"text-decoration: underline;\">Azure Container Instance</span> - Simple, easy, no-handlebars service to run any Docker container in Azure.</li>\n</ul>\n<p><strong>Step 1: Containerize the Donet Core App</strong></p>\n<p>At the root directory of your dotnet core app, create a text file called simply \"Dockerfile\". This is the file that's used to instruct Docker Build to create a custom image based upon various other layers we'll provide. Here's the Dockerfile:</p>\n<p><code>FROM microsoft/dotnet:sdk AS build-env</code><br><code>WORKDIR /app</code><br><br><code># Copy csproj and restore as distinct layers</code><br><code>COPY *.csproj ./</code><br><code>RUN dotnet restore</code><br><br><code># Copy everything else and build</code><br><code>COPY . ./</code><br><code>RUN dotnet publish -c Release -o out</code><br><br><code># Build runtime image</code><br><code>FROM microsoft/dotnet:aspnetcore-runtime</code><br><code>WORKDIR /app</code><br><code>COPY --from=build-env /app/out .</code><br><code>ENTRYPOINT [\"dotnet\", \"BasicWebApp.dll\"]</code></p>\n<p> </p>\n<p> </p>\n<p><strong>Step 2: Create the image</strong></p>\n<p>Still at the root directory where your Dockerfile was created, run the following command to create your image. Replace <em>&lt;REGISTRY_NAME&gt;</em><em> </em>with a name of your choosing. You'll need that name for the next step as well</p>\n<p><code>az acr build --registry &lt;REGISTRY_NAME&gt; --image basicwebapp:v2 .</code></p>\n<p> </p>\n<p><strong>Step 3: Launch an Azure Container Instance based on the image</strong></p>\n<p>You'll need the following pieces of information for this step:</p>\n<ul>\n<li>Registry Name from the previous step</li>\n<li>Registry username</li>\n<li>Registry password</li>\n<li>DNS Label: Any name you'd like to give your container, so that you can navigate to it by the following URI pattern: https://&lt;dns-label&gt;.azurecr.io</li>\n</ul>\n<p><code>az container create --name bwacontainer --resource-group Registry --image &lt;REGISTRY_NAME&gt;.azurecr.io/basicwebapp:v2 --registry-login-server &lt;REGISTRY_NAME&gt;.azurecr.io --registry-username &lt;REGISTRY_USERNAME&gt; -n bwacontainer --registry-password &lt;REGISTRY_PASSWORD&gt;  --dns-name-label &lt;DNS_LABEL&gt;</code></p>\n<p> </p>\n<p><strong>Step 4: Launch the site</strong></p>\n<p>Navigate to the url: https://&lt;dns_label&gt;.azurecr.io</p>",
+            "author": {
+                "name": "Reuben Cleetus"
+            },
+            "tags": [
+            ],
+            "date_published": "2019-03-26T15:16:00-04:00",
+            "date_modified": "2019-05-26T15:20:23-04:00"
+        },
+        {
+            "id": "https://marlinspike.github.io/create-an-azure-web-app-with-cli/",
+            "url": "https://marlinspike.github.io/create-an-azure-web-app-with-cli/",
+            "title": "Create an Azure Web App with CLI",
+            "summary": "#!/bin/bash # Replace the following URL with a public GitHub repo URL gitrepo=https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git# #Here's a PHP app you can use to test instead if you'd like #gitrepo=https://github.com/Azure-Samples/php-docs-hello-world #Name the web app webappname=mywebapp$RANDOM # Create a resource group. az group create --location westeurope --name myResourceGroup #&hellip;",
+            "content_html": "<p><code>#!/bin/bash</code><br><code></code></p>\n<p><code># Replace the following URL with a public GitHub repo URL</code><br><code>gitrepo=https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git#</code><br><br><code>#Here's a PHP app you can use to test instead if you'd like</code><br><code>#gitrepo=https://github.com/Azure-Samples/php-docs-hello-world</code><br><br><code>#Name the web app</code><br><code>webappname=mywebapp$RANDOM</code><br><br><code># Create a resource group.</code><br><code>az group create --location westeurope --name myResourceGroup</code><br><br><code># Create an App Service plan in `FREE` tier.</code><br><code>az appservice plan create --name $webappname --resource-group myResourceGroup --sku FREE</code><br><br><code># Create a web app.</code><br><code>az webapp create --name $webappname --resource-group myResourceGroup --plan $webappname</code><br><br><code># Deploy code from a public GitHub repository. </code><br><code>az webapp deployment source config --name $webappname --resource-group myResourceGroup \\</code><br><code>--repo-url $gitrepo --branch master --manual-integration</code><br><br><code># Copy the result of the following command into a browser to see the web app.</code><br><code>echo http://$webappname.azurewebsites.net</code></p>",
+            "author": {
+                "name": "Reuben Cleetus"
+            },
+            "tags": [
+            ],
+            "date_published": "2019-02-01T16:48:00-05:00",
+            "date_modified": "2019-05-24T17:17:58-04:00"
+        },
+        {
+            "id": "https://marlinspike.github.io/run-azure-cli-from-a-docker-image/",
+            "url": "https://marlinspike.github.io/run-azure-cli-from-a-docker-image/",
+            "title": "Run Azure CLI from a Docker image",
+            "summary": "Running Azure CLI when all you've got it Docker is super easy: docker run -it microsoft/azure-cli You get a new image downloaded with CLI v2, Python 3.6.4 (at current time), and that's about all you need in a bash environment to get going! I used to use&hellip;",
+            "content_html": "<div>Running Azure CLI when all you've got it Docker is super easy:</div>\n<div> </div>\n<div><code>docker run -it microsoft/azure-cli</code></div>\n<div> </div>\n<div>You get a new image downloaded with CLI v2, Python 3.6.4 (at current time), and that's about all you need in a bash environment to get going!</div>\n<br>\n<div>I used to use the azuresdk/azure-cli-python image, but now that microsoft/azure-cli includes Python 3.6.*, I don't really need the image at azuresdk/azure-cli-python, but the version of CLI is most up to date on the microsoft image, by a few minor versions.</div>",
+            "author": {
+                "name": "Reuben Cleetus"
+            },
+            "tags": [
+            ],
+            "date_published": "2019-01-05T18:02:00-05:00",
+            "date_modified": "2019-05-24T17:17:52-04:00"
+        }
+    ]
+}
