@@ -25,20 +25,6 @@
             "date_modified": "2019-05-27T10:12:33-04:00"
         },
         {
-            "id": "https://marlinspike.github.io/welcome-to-reublog/",
-            "url": "https://marlinspike.github.io/welcome-to-reublog/",
-            "title": "Welcome to reuBlog",
-            "summary": " Hello and welcome to reuBlog, a blog by Reuben Cleetus about the cloud, AI and automation technology I work with, life and all that's intersting. ",
-            "content_html": "<div>\n<div><img class=\"post__image--wide\" src=\"https://marlinspike.github.io/media/posts/1/starting_something_new.jpg\" alt=\"\" width=\"849\" height=\"419\"></div>\n<div> </div>\n<div><strong>Hello</strong> and welcome to reuBlog, a blog by Reuben Cleetus about the cloud, AI and automation technology I work with, life and all that's intersting.</div>\n</div>\n<div> </div>\n<div> </div>",
-            "author": {
-                "name": "Reuben Cleetus"
-            },
-            "tags": [
-            ],
-            "date_published": "2019-05-24T16:30:34-04:00",
-            "date_modified": "2019-05-24T17:18:15-04:00"
-        },
-        {
             "id": "https://marlinspike.github.io/create-a-failover-group-and-add-an-azure-sql-db-to-it/",
             "url": "https://marlinspike.github.io/create-a-failover-group-and-add-an-azure-sql-db-to-it/",
             "title": "Create a Failover Group and add an Azure SQL DB to it",
@@ -107,6 +93,20 @@
             ],
             "date_published": "2019-01-05T18:02:00-05:00",
             "date_modified": "2019-05-24T17:17:52-04:00"
+        },
+        {
+            "id": "https://marlinspike.github.io/welcome-to-reublog/",
+            "url": "https://marlinspike.github.io/welcome-to-reublog/",
+            "title": "Welcome to reuBlog",
+            "summary": " Hello and welcome to reuBlog, a blog by Reuben Cleetus about the cloud, AI and automation technology I work with, life and all that's intersting. ",
+            "content_html": "<div>\n<div><img class=\"post__image--wide\" src=\"https://marlinspike.github.io/media/posts/1/starting_something_new.jpg\" alt=\"\" width=\"849\" height=\"419\"></div>\n<div> </div>\n<div><strong>Hello</strong> and welcome to reuBlog, a blog by Reuben Cleetus about the cloud, AI and automation technology I work with, life and all that's intersting.</div>\n</div>\n<div> </div>\n<div> </div>",
+            "author": {
+                "name": "Reuben Cleetus"
+            },
+            "tags": [
+            ],
+            "date_published": "2019-01-03T16:30:00-05:00",
+            "date_modified": "2019-05-27T11:13:54-04:00"
         }
     ]
 }

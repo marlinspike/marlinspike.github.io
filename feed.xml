@@ -3,7 +3,7 @@
     <title>reuBlog</title>
     <link href="https://marlinspike.github.io/feed.xml" rel="self" />
     <link href="https://marlinspike.github.io" />
-    <updated>2019-05-27T11:00:18-04:00</updated>
+    <updated>2019-05-27T11:13:58-04:00</updated>
     <author>
         <name>Reuben Cleetus</name>
     </author>
@@ -98,32 +98,6 @@
 <figure class="post__image post__image" ><img src="https://marlinspike.github.io/media/posts/7/cseSucceeded3.png" alt="" width="269" height="104">
 <figcaption >File Created by CSE</figcaption>
 </figure>
-            ]]>
-        </content>
-    </entry>
-    <entry>
-        <title>Welcome to reuBlog</title>
-        <author>
-            <name>Reuben Cleetus</name>
-        </author>
-        <link href="https://marlinspike.github.io/welcome-to-reublog/"/>
-        <id>https://marlinspike.github.io/welcome-to-reublog/</id>
-
-        <updated>2019-05-24T17:18:15-04:00</updated>
-            <summary>
-                <![CDATA[
-                     Hello and welcome to reuBlog, a blog by Reuben Cleetus about the cloud, AI and automation technology I work with, life and all that's intersting. 
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                <div>
-<div><img class="post__image--wide" src="https://marlinspike.github.io/media/posts/1/starting_something_new.jpg" alt="" width="849" height="419"></div>
-<div> </div>
-<div><strong>Hello</strong> and welcome to reuBlog, a blog by Reuben Cleetus about the cloud, AI and automation technology I work with, life and all that's intersting.</div>
-</div>
-<div> </div>
-<div> </div>
             ]]>
         </content>
     </entry>
@@ -275,6 +249,32 @@
 <div>You get a new image downloaded with CLI v2, Python 3.6.4 (at current time), and that's about all you need in a bash environment to get going!</div>
 <br>
 <div>I used to use the azuresdk/azure-cli-python image, but now that microsoft/azure-cli includes Python 3.6.*, I don't really need the image at azuresdk/azure-cli-python, but the version of CLI is most up to date on the microsoft image, by a few minor versions.</div>
+            ]]>
+        </content>
+    </entry>
+    <entry>
+        <title>Welcome to reuBlog</title>
+        <author>
+            <name>Reuben Cleetus</name>
+        </author>
+        <link href="https://marlinspike.github.io/welcome-to-reublog/"/>
+        <id>https://marlinspike.github.io/welcome-to-reublog/</id>
+
+        <updated>2019-05-27T11:13:54-04:00</updated>
+            <summary>
+                <![CDATA[
+                     Hello and welcome to reuBlog, a blog by Reuben Cleetus about the cloud, AI and automation technology I work with, life and all that's intersting. 
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <div>
+<div><img class="post__image--wide" src="https://marlinspike.github.io/media/posts/1/starting_something_new.jpg" alt="" width="849" height="419"></div>
+<div> </div>
+<div><strong>Hello</strong> and welcome to reuBlog, a blog by Reuben Cleetus about the cloud, AI and automation technology I work with, life and all that's intersting.</div>
+</div>
+<div> </div>
+<div> </div>
             ]]>
         </content>
     </entry>
