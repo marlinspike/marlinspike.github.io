@@ -1,4 +1,20 @@
-<!doctype html><html amp lang="en"><head><meta charset="utf-8"><title>Author: Reuben Cleetus - reuBlog</title><link rel="canonical" href="https://marlinspike.github.io/authors/reuben-cleetus/"><meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"><link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css"><link rel="next" href="https://marlinspike.github.io/amp/authors/reuben-cleetus/page/2/"><script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script><script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script><script async custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js"></script><script type="application/ld+json">{"@context":"http://schema.org","@type":"Organization","name":"reuBlog","logo":"https://marlinspike.github.io/media/website/borneo.jpg","url":"https://marlinspike.github.io/amp/"}</script><style amp-custom>article,
+<!doctype html>
+<html amp lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Map a drive on a VM to Azure Files  - reuBlog </title>
+    <meta name="description" content="This script will map a drive on a VM to Azure Files. It uses Azure Custom Script Extensions to add an extension, which it then removes after it executes. Variables you'll need: #region --- Input Variables --- $VMName = "$(vm-name)" $ResourceGroupName = "$(ResourceGroupName)" $StorageAccountName = "$(storageAccountName)" $Location&hellip;" />
+    
+    <link rel="canonical" href="https://marlinspike.github.io/map-a-drive-on-a-vm-to-azure-files/">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
+    <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+    <script async custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js"></script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://marlinspike.github.io/amp/map-a-drive-on-a-vm-to-azure-files/"},"headline":"Map a drive on a VM to Azure Files ","datePublished":"2019-06-03T16:56","dateModified":"2019-06-03T17:02","image":{"@type":"ImageObject","url":"https://marlinspike.github.io/media/website/borneo.jpg","height":540,"width":960},"description":"This script will map a drive on a VM to Azure Files. It uses Azure Custom Script Extensions to add an extension, which it then removes after it executes. Variables you'll need: #region --- Input Variables --- $VMName = \"$(vm-name)\" $ResourceGroupName = \"$(ResourceGroupName)\" $StorageAccountName = \"$(storageAccountName)\" $Location&hellip;","author":{"@type":"Person","name":"Reuben Cleetus"},"publisher":{"@type":"Organization","name":"Reuben Cleetus","logo":{"@type":"ImageObject","url":"https://marlinspike.github.io/media/website/borneo.jpg","height":540,"width":960}}}</script>
+    <style amp-custom>
+article,
 aside,
 footer,
 header,
@@ -557,7 +573,122 @@ aside {
   background: #039be5;
   color: #ffffff;
   padding: 1.06667rem 4%;
-  text-align: center; }</style><style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><script async src="https://cdn.ampproject.org/v0.js"></script><script custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js" async></script><script custom-element="amp-position-observer" src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js" async></script></head><body><nav class="navbar wrap-inner" id="top"><div><a on="tap:navbar-sidebar.toggle" class="navbar-sidebar-toggle" title="Menu">Menu</a> <a class="logo" href="https://marlinspike.github.io/amp/">reuBlog</a></div></nav><main class="wrap-page"><div class="page-title"><h1>Reuben Cleetus <sup>(9)</sup></h1></div><article class="card"><div class="card-text"><h2><a href="https://marlinspike.github.io/amp/map-a-drive-on-a-vm-to-azure-files/">Map a drive on a VM to Azure Files</a></h2><p>This script will map a drive on a VM to Azure Files. It uses Azure Custom Script Extensions to add an extension, which it then removes after it executes. Variables you'll need: #region --- Input Variables --- $VMName = "$(vm-name)" $ResourceGroupName = "$(ResourceGroupName)" $StorageAccountName = "$(storageAccountName)" $Location&hellip;</p><p class="card-meta"><time datetime="2019-06-03T16:56">June 3, 2019</time></p></div></article><article class="card"><div class="card-text"><h2><a href="https://marlinspike.github.io/amp/setting-a-vm-custom-script-extension-via-azure-devops/">Setting a VM Custom Script Extension via Azure DevOps</a></h2><p>Azure Custom Script Extension (CSE) provides the facilities to download and run custom PowerShell scripts on an Azure VM, using the Azure VM Agent that's installed by default on all images originating from the Microsoft Azure marketplace. It's possible to install the agent on a&hellip;</p><p class="card-meta"><time datetime="2019-05-26T19:51">May 26, 2019</time></p></div></article><article class="card"><div class="card-text"><h2><a href="https://marlinspike.github.io/amp/create-a-failover-group-and-add-an-azure-sql-db-to-it/">Create a Failover Group and add an Azure SQL DB to it</a></h2><p>Failover Groups (FG) are one of the features of Azure SQL that sprinkle magic dust upon it -- set one up, add a database to it, and you're automatically replicating to a remote region of your choice, and can failover at will if you like.</p><p class="card-meta"><time datetime="2019-04-26T17:05">April 26, 2019</time></p></div></article><article class="card"><div class="card-text"><h2><a href="https://marlinspike.github.io/amp/azure-cli-tools-for-vscode/">Azure CLI Tools for VSCode</a></h2><p>Coding in Azure CLI just got a lot easier with the Azure CLI tools for VSCode. Azure CLI used to be a better experience on Mac and Linux than it was on Windows, but the CLI tools makes it an amazing cross-platform experience. To set&hellip;</p><p class="card-meta"><time datetime="2019-04-12T18:44">April 12, 2019</time></p></div></article><article class="card"><div class="card-text"><h2><a href="https://marlinspike.github.io/amp/call-azure-storage-rest-api-with-python/">Call Azure Storage REST API with Python</a></h2><p>I had a need to use the Azure Storage REST API via Python, and thought I'd share the the code. You can find it the source on my repo. To use the sample below, you'll also need to populate a creds.json file, a pattern I find useful&hellip;</p><p class="card-meta"><time datetime="2019-03-27T13:07">March 27, 2019</time></p></div></article><nav class="pagination wrap-inner"><a href="https://marlinspike.github.io/amp/authors/reuben-cleetus/page/2/" class="btn btn-outline">Previous</a></nav></main><amp-animation id="showAnim" layout="nodisplay"><script type="application/json">{
+  text-align: center; }
+    </style>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js" async></script>
+    <script custom-element="amp-position-observer" src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js" async></script>
+
+    
+</head>
+
+<body class="bg-white">
+    <nav class="navbar wrap-inner" id="top">
+        <div>
+            <a on="tap:navbar-sidebar.toggle" class="navbar-sidebar-toggle" title="Menu">Menu</a>
+            <a class="logo" href="https://marlinspike.github.io/amp/">
+                reuBlog
+            </a>
+        </div>
+    </nav>
+
+    <main class="wrap-page">
+        <article class="post">
+            
+            
+             <div class="wrap-inner">
+                <header class="post-header">
+                    <h1>
+                        Map a drive on a VM to Azure Files 
+                    </h1>
+                        <p class="post-meta">
+                                    By
+                                    <a href="https://marlinspike.github.io/amp/authors/reuben-cleetus/" rel="nofollow" title="Reuben Cleetus">Reuben Cleetus</a>
+                                <time datetime="2019-06-03T16:56">
+                                    June 3, 2019
+                                </time>
+                        </p>
+                </header>
+
+                <p>This script will map a drive on a VM to Azure Files. It uses Azure Custom Script Extensions to add an extension, which it then removes after it executes.</p>
+<p>Variables you'll need:</p>
+<ul>
+<li>$VMName - Name of the VM</li>
+<li>$ResourceGroupName - Name of the Resource Group</li>
+<li>$Location - Location of the Storage Account</li>
+</ul>
+<p><br><code class="language-powershell">#region --- Input Variables ---</code><br><br><code> $VMName = "$(vm-name)"</code><br><code> $ResourceGroupName = "$(ResourceGroupName)"</code><br><code> $StorageAccountName = "$(storageAccountName)"</code><br><code> $Location = "$(location)"</code><br><code> $ExtensionName = 'MapXDrive'</code><br><br><code>#endregion --------------------</code><br><br><code>$StorageAccountKey = $(Get-AzureRmStorageAccountKey -ResourceGroupName $ResourceGroupName -StorageAccountName $StorageAccountName).Value[0]</code><br><br><code>$bat1 = "cmdkey /add:mystorageaccount.file.core.usgovcloudapi.net /user:Azure\vmuser /pass:$StorageAccountKey &amp;&amp; net use F: \\mystorageaccount.file.core.usgovcloudapi.net\myfolder -d /persistent:Yes"</code><br><br><code>$Command1 = [pscustomobject][ordered]@{</code><br><code> commandToExecute="powershell $bat1"</code><br><code>} | ConvertTo-Json -Depth 99 -Compress</code><br><br><code>$Target = @{</code><br><code> VMName = $VMName</code><br><code> ResourceGroupName = $ResourceGroupName</code><br><code> ExtensionName = $ExtensionName</code><br><code> ErrorAction = 'SilentlyContinue'</code><br><code>}</code><br><br><code>$MetaData = @{</code><br><code> Location = $Location </code><br><code> Publisher = 'Microsoft.Compute'</code><br><code> ExtensionType = 'CustomScriptExtension'</code><br><code> TypeHandlerVersion = '1.9'</code><br><code> ForceRerun = $true</code><br><code>}</code><br><br><code>Set-AzureRmVMExtension @Target @MetaData -SettingString $Command1 | Out-Null</code><br><br><code>Remove-AzureRmVMExtension @Target -Force | Out-Null</code></p>
+                 
+                    <aside>
+                   
+                            <div class="post-share">
+                                     <amp-social-share
+                                             type="system"
+                                             width="40"
+                                             height="40"
+                                             data-param-text="Map a drive on a VM to Azure Files ">
+                                     </amp-social-share>
+                                 
+                                     <amp-social-share
+                                             type="facebook"
+                                             width="40"
+                                             height="40"
+                                             data-param-app_id=""
+                                             data-param-text="Map a drive on a VM to Azure Files "
+                                             data-param-href="https://marlinspike.github.io/amp/map-a-drive-on-a-vm-to-azure-files/">
+                                     </amp-social-share>
+                                 
+                                     <amp-social-share
+                                             type="twitter"
+                                             width="40"
+                                             height="40"
+                                             data-param-text="Map a drive on a VM to Azure Files "
+                                             data-param-url="https://marlinspike.github.io/amp/map-a-drive-on-a-vm-to-azure-files/">
+                                     </amp-social-share>
+                                 
+                                 
+                                     <amp-social-share
+                                             type="pinterest"
+                                             width="40"
+                                             height="40"
+                                             data-param-url="https://marlinspike.github.io/amp/map-a-drive-on-a-vm-to-azure-files/">
+                                     </amp-social-share>
+                                 
+                                 
+                                     <amp-social-share
+                                             type="tumblr"
+                                             width="40"
+                                             height="40"
+                                             data-param-text="Map a drive on a VM to Azure Files "
+                                             data-param-url="https://marlinspike.github.io/amp/map-a-drive-on-a-vm-to-azure-files/">
+                                     </amp-social-share>
+                                 
+                                     <amp-social-share
+                                             type="whatsapp"
+                                             width="40"
+                                             height="40"
+                                             data-param-text="Map a drive on a VM to Azure Files ">
+                                     </amp-social-share>
+                            </div>                  
+                    </aside>
+             
+            </div>
+        </article>
+        
+            <nav class="post-pagination wrap-inner">
+                    <div class="post-pagination-prev">               
+                        <span>Previous</span>
+                        <a href="https://marlinspike.github.io/amp/setting-a-vm-custom-script-extension-via-azure-devops/">Setting a VM Custom Script Extension via Azure DevOps</a>               
+                    </div>
+
+            </nav>
+       
+       
+    </main>
+<amp-animation id="showAnim" layout="nodisplay">
+        <script type="application/json">
+                {
                     "duration": "200ms",
                     "fill": "both",
                     "iterations": "1",
@@ -570,7 +701,13 @@ aside {
                             "transform": "scale(1)"
                         }]
                     }]
-                }</script></amp-animation><amp-animation id="hideAnim" layout="nodisplay"><script type="application/json">{
+                }
+
+        </script>
+</amp-animation>
+<amp-animation id="hideAnim" layout="nodisplay">
+        <script type="application/json">
+                {
                     "duration": "200ms",
                     "fill": "both",
                     "iterations": "1",
@@ -583,4 +720,24 @@ aside {
                             "transform": "scale(0.1)"
                         }]
                     }]
-                }</script></amp-animation><div class="post-scroll-marker"><amp-position-observer on="enter:hideAnim.start; exit:showAnim.start" layout="nodisplay"></amp-position-observer></div><button class="post-scroll" on="tap:top.scrollTo(duration=200)">&#8593;</button><footer class="bottom">Powered by Publii</footer><amp-sidebar id="navbar-sidebar" layout="nodisplay"><ul></ul></amp-sidebar></body></html>
+                }
+
+            </script>
+</amp-animation>
+<div class="post-scroll-marker">
+     <amp-position-observer on="enter:hideAnim.start; exit:showAnim.start" layout="nodisplay">
+     </amp-position-observer>
+</div>        
+<button class="post-scroll" on="tap:top.scrollTo(duration=200)" >&#8593;</button>
+
+<footer class="bottom">Powered by Publii</footer>
+<amp-sidebar id="navbar-sidebar" layout="nodisplay">
+     <ul>
+    </ul>
+</amp-sidebar>
+
+
+
+
+</body>
+</html>

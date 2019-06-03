@@ -3,12 +3,39 @@
     <title>reuBlog</title>
     <link href="https://marlinspike.github.io/feed.xml" rel="self" />
     <link href="https://marlinspike.github.io" />
-    <updated>2019-05-31T21:39:22-04:00</updated>
+    <updated>2019-06-03T17:03:57-04:00</updated>
     <author>
         <name>Reuben Cleetus</name>
     </author>
     <id>https://marlinspike.github.io</id>
 
+    <entry>
+        <title>Map a drive on a VM to Azure Files </title>
+        <author>
+            <name>Reuben Cleetus</name>
+        </author>
+        <link href="https://marlinspike.github.io/map-a-drive-on-a-vm-to-azure-files/"/>
+        <id>https://marlinspike.github.io/map-a-drive-on-a-vm-to-azure-files/</id>
+
+        <updated>2019-06-03T17:02:27-04:00</updated>
+            <summary>
+                <![CDATA[
+                    This script will map a drive on a VM to Azure Files. It uses Azure Custom Script Extensions to add an extension, which it then removes after it executes. Variables you'll need: #region --- Input Variables --- $VMName = "$(vm-name)" $ResourceGroupName = "$(ResourceGroupName)" $StorageAccountName = "$(storageAccountName)" $Location&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>This script will map a drive on a VM to Azure Files. It uses Azure Custom Script Extensions to add an extension, which it then removes after it executes.</p>
+<p>Variables you'll need:</p>
+<ul>
+<li>$VMName - Name of the VM</li>
+<li>$ResourceGroupName - Name of the Resource Group</li>
+<li>$Location - Location of the Storage Account</li>
+</ul>
+<p><br><code class="language-powershell">#region --- Input Variables ---</code><br><br><code> $VMName = "$(vm-name)"</code><br><code> $ResourceGroupName = "$(ResourceGroupName)"</code><br><code> $StorageAccountName = "$(storageAccountName)"</code><br><code> $Location = "$(location)"</code><br><code> $ExtensionName = 'MapXDrive'</code><br><br><code>#endregion --------------------</code><br><br><code>$StorageAccountKey = $(Get-AzureRmStorageAccountKey -ResourceGroupName $ResourceGroupName -StorageAccountName $StorageAccountName).Value[0]</code><br><br><code>$bat1 = "cmdkey /add:mystorageaccount.file.core.usgovcloudapi.net /user:Azure\vmuser /pass:$StorageAccountKey &amp;&amp; net use F: \\mystorageaccount.file.core.usgovcloudapi.net\myfolder -d /persistent:Yes"</code><br><br><code>$Command1 = [pscustomobject][ordered]@{</code><br><code> commandToExecute="powershell $bat1"</code><br><code>} | ConvertTo-Json -Depth 99 -Compress</code><br><br><code>$Target = @{</code><br><code> VMName = $VMName</code><br><code> ResourceGroupName = $ResourceGroupName</code><br><code> ExtensionName = $ExtensionName</code><br><code> ErrorAction = 'SilentlyContinue'</code><br><code>}</code><br><br><code>$MetaData = @{</code><br><code> Location = $Location </code><br><code> Publisher = 'Microsoft.Compute'</code><br><code> ExtensionType = 'CustomScriptExtension'</code><br><code> TypeHandlerVersion = '1.9'</code><br><code> ForceRerun = $true</code><br><code>}</code><br><br><code>Set-AzureRmVMExtension @Target @MetaData -SettingString $Command1 | Out-Null</code><br><br><code>Remove-AzureRmVMExtension @Target -Force | Out-Null</code></p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Setting a VM Custom Script Extension via Azure DevOps</title>
         <author>

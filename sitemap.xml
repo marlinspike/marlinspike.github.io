@@ -25,6 +25,34 @@
 <lastmod>2019-05-24T17:17:58-04:00</lastmod>
 </url>
 <url>
+<loc>https://marlinspike.github.io/deploy-an-azure-function-app-with-azure-devops/</loc>
+<lastmod>2019-06-03T16:56:46-04:00</lastmod>
+<image:image>
+<image:loc>https://marlinspike.github.io/media/posts/9/DevOps1.png</image:loc>
+<image:title><![CDATA[Import Source code to DevOps]]></image:title>
+</image:image>
+<image:image>
+<image:loc>https://marlinspike.github.io/media/posts/9/DevOps2.png</image:loc>
+<image:title><![CDATA[PointDevops to your code]]></image:title>
+</image:image>
+<image:image>
+<image:loc>https://marlinspike.github.io/media/posts/9/DevOps3.png</image:loc>
+<image:title><![CDATA[ASP.NET Core Task]]></image:title>
+</image:image>
+<image:image>
+<image:loc>https://marlinspike.github.io/media/posts/9/DevOps4.png</image:loc>
+<image:title><![CDATA[]]></image:title>
+</image:image>
+<image:image>
+<image:loc>https://marlinspike.github.io/media/posts/9/DevOps5.png</image:loc>
+<image:title><![CDATA[]]></image:title>
+</image:image>
+</url>
+<url>
+<loc>https://marlinspike.github.io/map-a-drive-on-a-vm-to-azure-files/</loc>
+<lastmod>2019-06-03T17:02:27-04:00</lastmod>
+</url>
+<url>
 <loc>https://marlinspike.github.io/run-azure-cli-from-a-docker-image/</loc>
 <lastmod>2019-05-24T17:17:52-04:00</lastmod>
 </url>
