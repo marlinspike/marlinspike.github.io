@@ -3,12 +3,54 @@
     <title>reuBlog</title>
     <link href="https://marlinspike.github.io/feed.xml" rel="self" />
     <link href="https://marlinspike.github.io" />
-    <updated>2019-06-03T17:19:32-04:00</updated>
+    <updated>2019-06-13T13:24:51-04:00</updated>
     <author>
         <name>Reuben Cleetus</name>
     </author>
     <id>https://marlinspike.github.io</id>
 
+    <entry>
+        <title>Adding application.json configuration to a .NET Core 2 Console App</title>
+        <author>
+            <name>Reuben Cleetus</name>
+        </author>
+        <link href="https://marlinspike.github.io/adding-applicationjson-configuration-to-a-net-core-2-console-app/"/>
+        <id>https://marlinspike.github.io/adding-applicationjson-configuration-to-a-net-core-2-console-app/</id>
+
+        <updated>2019-06-13T13:24:35-04:00</updated>
+            <summary>
+                <![CDATA[
+                    Most documentation on .NET Core 2 configuration seem to assume that you're working with a web app. Adding application.json configuration to a .NET Core 2 Console app is a bit different, but pretty straightforward once you know the basics. Here's what you'll need to do:&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <p>Most documentation on .NET Core 2 configuration seem to assume that you're working with a web app. Adding application.json configuration to a .NET Core 2 Console app is a bit different, but pretty straightforward once you know the basics. Here's what you'll need to do:</p>
+<p><strong>Step 1 - Create application.json file</strong></p>
+<p>Create a new file, and name it <em>application.json</em>, and place it in the app root directory. Make sure to set the Build Action for Copy to Output Directory to <em>Copy Always.</em></p>
+<figure class="post__image post__image" ><img src="https://marlinspike.github.io/media/posts/11/console1.png" alt="" width="295" height="196">
+<figcaption >Set Build Action</figcaption>
+</figure>
+<p><strong>Step 2 - Set up the Configuration Builder in the startup file</strong></p>
+<p>In Program.cs (or whatever's your startup class), set up the Configuration Builder in the Main() method.</p>
+<p><code> static void Main(string[] args) {</code><br><br><code> //Sets up the Builder</code><br><code> var builder = new ConfigurationBuilder()</code><br><code> .SetBasePath(Directory.GetCurrentDirectory())</code><br><code> .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)</code><br><code> .AddEnvironmentVariables();</code><br><br><code> //Build the Configuration</code><br><code> IConfigurationRoot configuration = builder.Build();</code><br><br><code> //Get a Connection String</code><br><code> string cn = configuration.GetConnectionString("DefaultConnection");</code><br><br><code> //Work with section-specific values, which requires a bound model </code><br><code> var cfg = new SysConfig();</code><br><code> configuration.GetSection("App").Bind(cfg);</code><br> <br><code> }</code></p>
+<p>In this code, we set up the builder first, and get immediate access to root-level Connection Strings objects in the appsettings.json file. <em>What's more important and different, frankly, than .NET Standard, is how you access nodes within the configuration file</em>. More below.</p>
+<p><strong>Step 3 - Access App Setting nodes</strong></p>
+<p>You often need to model and set up App Settings for specific parts of the application, and in the application.json file, you'll separate those in separate nodes. Each node is then bound to a model class, which allows you to provide strongly typed access to application properties. In .NET Standard, you'd just access these values via Configuration.AppSettings, but in .NET Core, you use a much more robust and maintainable patter. Here's how:</p>
+<p><strong>Create the app settings node in the application.json file:</strong></p>
+<p><code>{</code><br><code> "ConnectionStrings": {</code><br><code> "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=MyApplicationDatabase;Trusted_Connection=True;MultipleActiveResultSets=true"</code><br><code> },</code><br><strong><code> "App": {</code></strong><br><strong><code> "DriveLetter": "Z",</code></strong><br><strong><code> "Folder": "Test",</code></strong><br><strong><code> "Secret": "Top Secret Stuff"</code></strong><br><strong><code> }</code></strong><br><code>}</code></p>
+<p><strong>Create the backing model class that maps to this node:</strong></p>
+<p><code>using System;</code><br><code>using System.Collections.Generic;</code><br><code>using System.Text;</code><br><br><code>namespace Demo.models {</code><br><code> class SysConfig {</code><br><code> public string <strong>DriveLetter</strong> { get; set; }</code><br><code> public string <strong>Folder</strong> { get; set; }</code><br><code> public string <strong>Secret</strong> { get; set; }</code><br><code> }</code><br><code>}</code></p>
+<p>Notice how the properties in the class map to properties in the JSON Object for the <strong>App</strong> section. The name of the section in the JSON file doesn't map to the backing class; only the properties need to match up.</p>
+<p><strong>Automatically load an instance of the backing class with values from application.json</strong></p>
+<p><code> //Work with section-specific values, which requires a bound model </code><br><strong><code> var cfg = new SysConfig();</code></strong><br><code> configuration.GetSection("<strong>App</strong>").Bind(cfg);</code><br><br><code> Console.WriteLine("Drive: " + cfg.DriveLetter);</code><br><code> Console.WriteLine("Folder: " + cfg.Folder);</code><br><code> Console.WriteLine("Folder: " + cfg.Secret);</code></p>
+<p>Note how we create an instance of the SysConfig backing class, and then <em>bind</em> the JSON object in application.json to the backing class. Then we use the backing class as you normally would.</p>
+<p>That's it!</p>
+<p>Here's the body of the application.json file used:</p>
+<p><code>{</code><br><code> "ConnectionStrings": {</code><br><code> "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=MyApplicationDatabase;Trusted_Connection=True;MultipleActiveResultSets=true"</code><br><code> },</code><br><code> "App": {</code><br><code> "DriveLetter": "Z",</code><br><code> "Folder": "Test",</code><br><code> "Secret": "Top Secret Stuff"</code><br><code> }</code><br><code>}</code></p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Map a drive on a VM to Azure Files </title>
         <author>
