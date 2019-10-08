@@ -11,6 +11,20 @@
     },
     "items": [
         {
+            "id": "https://marlinspike.github.io/deleting-all-commit-history-from-github/",
+            "url": "https://marlinspike.github.io/deleting-all-commit-history-from-github/",
+            "title": "Deleting all commit history from Github",
+            "summary": "I had a request to help with a curious ask to remove all commit history from Github. It's pretty straightforward, and works in any Git repository. The general solution is to create a new branch, remove the master branch, rename the new branch created to master, and then&hellip;",
+            "content_html": "<p>I had a request to help with a curious ask to remove all commit history from Github. It's pretty straightforward, and works in any Git repository. The general solution is to create a new branch, remove the master branch, rename the new branch created to <em>master</em>, and then push the 'new master' bach up to origin.</p>\n<p>Here it is step by step:</p>\n<ol>\n<li>Create an orphan branch - This creates a new orphan branch which you'll be adding files to in the next step.<br>\n<pre><code>git checkout --orphan temp</code></pre>\n</li>\n<li>Add files to the new branch - Now you all all the files from your local folder to the new branch, and then commit them.<br>\n<pre><code>git add -A\ngit commit -am \"initial commit\"</code></pre>\n</li>\n<li>Delete the master branch - Remove the master from the local git repo<br>\n<pre><code>git branch -D master</code></pre>\n</li>\n<li>Rename the temp branch you just created - Now that we've removed <em>master</em>, we'll rename the <em>temp</em> branch to <em>master</em>.<br>\n<pre><code>git branch -m master</code></pre>\n</li>\n<li>Push your changes - We're done in the local repo, so now it's time to push the changes to origin.<br>\n<pre><code>git push -f origin master</code></pre>\nThat's it. Now go check out your origin repository, and you should see a single commit. That's because we've replaced the old master with a new one that has only that one commit.</li>\n</ol>",
+            "author": {
+                "name": "Reuben Cleetus"
+            },
+            "tags": [
+            ],
+            "date_published": "2019-10-08T10:50:54-04:00",
+            "date_modified": "2019-10-08T10:50:54-04:00"
+        },
+        {
             "id": "https://marlinspike.github.io/adding-applicationjson-configuration-to-a-net-core-2-console-app/",
             "url": "https://marlinspike.github.io/adding-applicationjson-configuration-to-a-net-core-2-console-app/",
             "title": "Adding application.json configuration to a .NET Core 2 Console App",
@@ -135,20 +149,6 @@
             ],
             "date_published": "2019-01-05T18:02:00-05:00",
             "date_modified": "2019-05-24T17:17:52-04:00"
-        },
-        {
-            "id": "https://marlinspike.github.io/welcome-to-reublog/",
-            "url": "https://marlinspike.github.io/welcome-to-reublog/",
-            "title": "Welcome to reuBlog",
-            "summary": " Hello and welcome to reuBlog, a blog by Reuben Cleetus about the cloud, AI and automation technology I work with, life and all that's intersting. ",
-            "content_html": "<div>\n<div><img class=\"post__image--wide\" src=\"https://marlinspike.github.io/media/posts/1/starting_something_new.jpg\" alt=\"\" width=\"849\" height=\"419\"></div>\n<div> </div>\n<div><strong>Hello</strong> and welcome to reuBlog, a blog by Reuben Cleetus about the cloud, AI and automation technology I work with, life and all that's intersting.</div>\n</div>\n<div> </div>\n<div> </div>",
-            "author": {
-                "name": "Reuben Cleetus"
-            },
-            "tags": [
-            ],
-            "date_published": "2019-01-03T16:30:00-05:00",
-            "date_modified": "2019-05-27T11:13:54-04:00"
         }
     ]
 }
