@@ -1,4 +1,20 @@
-<!doctype html><html amp lang="en"><head><meta charset="utf-8"><title>reuBlog</title><link rel="canonical" href="https://marlinspike.github.io/page/2/"><meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"><link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css"><link rel="prev" href="https://marlinspike.github.io/amp/"><script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script><script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script><script async custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js"></script><script type="application/ld+json">{"@context":"http://schema.org","@type":"Organization","name":"reuBlog","logo":"https://marlinspike.github.io/media/website/borneo.jpg","url":"https://marlinspike.github.io/amp/"}</script><style amp-custom>article,
+<!doctype html>
+<html amp lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Getting VM Uptime via Log Analytics - reuBlog </title>
+    <meta name="description" content="Log Analytics is an excellent data aggregation tool for service telemetry, and while it's great at ingesting massive quantities of data, it can be a bit challenging to get something like telemetry information. Here's how you'd get VM Uptime via Log Analytics: let start_time=startofday(datetime("2019-10-01 00:00:00&hellip;" />
+    
+    <link rel="canonical" href="https://marlinspike.github.io/getting-vm-uptime-via-log-analytics/">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
+    <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+    <script async custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js"></script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://marlinspike.github.io/amp/getting-vm-uptime-via-log-analytics/"},"headline":"Getting VM Uptime via Log Analytics","datePublished":"2019-10-25T10:02","dateModified":"2019-10-25T10:02","image":{"@type":"ImageObject","url":"https://marlinspike.github.io/media/website/borneo.jpg","height":540,"width":960},"description":"Log Analytics is an excellent data aggregation tool for service telemetry, and while it's great at ingesting massive quantities of data, it can be a bit challenging to get something like telemetry information. Here's how you'd get VM Uptime via Log Analytics: let start_time=startofday(datetime(\"2019-10-01 00:00:00&hellip;","author":{"@type":"Person","name":"Reuben Cleetus"},"publisher":{"@type":"Organization","name":"Reuben Cleetus","logo":{"@type":"ImageObject","url":"https://marlinspike.github.io/media/website/borneo.jpg","height":540,"width":960}}}</script>
+    <style amp-custom>
+article,
 aside,
 footer,
 header,
@@ -557,7 +573,131 @@ aside {
   background: #039be5;
   color: #ffffff;
   padding: 1.06667rem 4%;
-  text-align: center; }</style><style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><script async src="https://cdn.ampproject.org/v0.js"></script><script custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js" async></script><script custom-element="amp-position-observer" src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js" async></script></head><body><nav class="navbar wrap-inner" id="top"><div><a on="tap:navbar-sidebar.toggle" class="navbar-sidebar-toggle" title="Menu">Menu</a> <a class="logo" href="https://marlinspike.github.io/amp/">reuBlog</a></div></nav><main class="wrap-page"><article class="card"><div class="card-text"><h2><a href="https://marlinspike.github.io/amp/run-azure-cli-from-a-docker-image/">Run Azure CLI from a Docker image</a></h2><p>Running Azure CLI when all you've got it Docker is super easy: docker run -it microsoft/azure-cli You get a new image downloaded with CLI v2, Python 3.6.4 (at current time), and that's about all you need in a bash environment to get going! I used to use&hellip;</p><p class="card-meta">By <a href="https://marlinspike.github.io/amp/authors/reuben-cleetus/" rel="nofollow" title="Reuben Cleetus">Reuben Cleetus</a> <time datetime="2019-01-05T18:02">January 5, 2019</time></p></div></article><article class="card"><div class="card-text"><h2><a href="https://marlinspike.github.io/amp/welcome-to-reublog/">Welcome to reuBlog</a></h2><p> Hello and welcome to reuBlog, a blog by Reuben Cleetus about the cloud, AI and automation technology I work with, life and all that's intersting.</p><p class="card-meta">By <a href="https://marlinspike.github.io/amp/authors/reuben-cleetus/" rel="nofollow" title="Reuben Cleetus">Reuben Cleetus</a> <time datetime="2019-01-03T16:30">January 3, 2019</time></p></div></article><nav class="pagination wrap-inner"><a href="https://marlinspike.github.io/amp/" class="btn btn-outline pagination-right">Next</a></nav></main><amp-animation id="showAnim" layout="nodisplay"><script type="application/json">{
+  text-align: center; }
+
+    
+    </style>
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js" async></script>
+    <script custom-element="amp-position-observer" src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js" async></script>
+
+    
+</head>
+
+<body class="bg-white">
+    <nav class="navbar wrap-inner" id="top">
+        <div>
+            <a on="tap:navbar-sidebar.toggle" class="navbar-sidebar-toggle" title="Menu">Menu</a>
+            <a class="logo" href="https://marlinspike.github.io/amp/">
+                reuBlog
+            </a>
+        </div>
+    </nav>
+
+    <main class="wrap-page">
+        <article class="post">
+            
+            
+             <div class="wrap-inner">
+                <header class="post-header">
+                    <h1>
+                        Getting VM Uptime via Log Analytics
+                    </h1>
+                        <p class="post-meta">
+                                    By
+                                    <a href="https://marlinspike.github.io/amp/authors/reuben-cleetus/" rel="nofollow" title="Reuben Cleetus">Reuben Cleetus</a>
+                                <time datetime="2019-10-25T10:02">
+                                    October 25, 2019
+                                </time>
+                        </p>
+                </header>
+
+                <p>Log Analytics is an excellent data aggregation tool for service telemetry, and while it's great at ingesting massive quantities of data, it can be a bit challenging to get something like telemetry information.</p>
+<p>Here's how you'd get VM Uptime via Log Analytics:</p>
+<p> </p>
+<div>
+<div><code>let start_time=startofday(datetime("2019-10-01 00:00:00 AM"));</code></div>
+<div><code>let end_time=endofday(datetime("2019-10-31 11:59:59 PM"));</code></div>
+<div><code>Heartbeat</code></div>
+<div><code>| where TimeGenerated &gt; start_time and TimeGenerated &lt; end_time</code></div>
+<div><code>| summarize heartbeat_per_hour=count() by bin_at(TimeGenerated, 1h, start_time), Computer</code></div>
+<div><code>| extend available_per_hour=iff(heartbeat_per_hour&gt;0, true, false)</code></div>
+<div><code>| summarize total_available_hours=countif(available_per_hour==true) by Computer</code></div>
+<div><code>| extend total_number_of_buckets=round((end_time-start_time)/1h)</code></div>
+<div><code>| extend availability_rate=total_available_hours*100/total_number_of_buckets</code></div>
+<div> </div>
+<div><figure class="post__image"><amp-img  src="https://marlinspike.github.io/media/posts/15/2019-10-25-Kusto-LogA-VM-Uptime.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://marlinspike.github.io/media/posts/15/responsive/2019-10-25-Kusto-LogA-VM-Uptime-xs.png 300w ,https://marlinspike.github.io/media/posts/15/responsive/2019-10-25-Kusto-LogA-VM-Uptime-sm.png 480w ,https://marlinspike.github.io/media/posts/15/responsive/2019-10-25-Kusto-LogA-VM-Uptime-md.png 768w ,https://marlinspike.github.io/media/posts/15/responsive/2019-10-25-Kusto-LogA-VM-Uptime-lg.png 1024w ,https://marlinspike.github.io/media/posts/15/responsive/2019-10-25-Kusto-LogA-VM-Uptime-xl.png 1360w ,https://marlinspike.github.io/media/posts/15/responsive/2019-10-25-Kusto-LogA-VM-Uptime-2xl.png 1600w"  alt="" width="610" height="176" layout="responsive"></amp-img></figure></div>
+</div>
+                 
+                    <aside>
+                   
+                            <div class="post-share">
+                                     <amp-social-share
+                                             type="system"
+                                             width="40"
+                                             height="40"
+                                             data-param-text="Getting VM Uptime via Log Analytics">
+                                     </amp-social-share>
+                                 
+                                     <amp-social-share
+                                             type="facebook"
+                                             width="40"
+                                             height="40"
+                                             data-param-app_id=""
+                                             data-param-text="Getting VM Uptime via Log Analytics"
+                                             data-param-href="https://marlinspike.github.io/amp/getting-vm-uptime-via-log-analytics/">
+                                     </amp-social-share>
+                                 
+                                     <amp-social-share
+                                             type="twitter"
+                                             width="40"
+                                             height="40"
+                                             data-param-text="Getting VM Uptime via Log Analytics"
+                                             data-param-url="https://marlinspike.github.io/amp/getting-vm-uptime-via-log-analytics/">
+                                     </amp-social-share>
+                                 
+                                     <amp-social-share
+                                             type="pinterest"
+                                             width="40"
+                                             height="40"
+                                             data-param-url="https://marlinspike.github.io/amp/getting-vm-uptime-via-log-analytics/">
+                                     </amp-social-share>
+                                 
+                                 
+                                     <amp-social-share
+                                             type="tumblr"
+                                             width="40"
+                                             height="40"
+                                             data-param-text="Getting VM Uptime via Log Analytics"
+                                             data-param-url="https://marlinspike.github.io/amp/getting-vm-uptime-via-log-analytics/">
+                                     </amp-social-share>
+                                 
+                                     <amp-social-share
+                                             type="whatsapp"
+                                             width="40"
+                                             height="40"
+                                             data-param-text="Getting VM Uptime via Log Analytics">
+                                     </amp-social-share>
+                            </div>                  
+                    </aside>
+             
+            </div>
+        </article>
+        
+            <nav class="post-pagination wrap-inner">
+                    <div class="post-pagination-prev">               
+                        <span>Previous</span>
+                        <a href="https://marlinspike.github.io/amp/deleting-all-commit-history-from-github/">Deleting all commit history from Github</a>               
+                    </div>
+
+            </nav>
+       
+       
+    </main>
+<amp-animation id="showAnim" layout="nodisplay">
+        <script type="application/json">
+                {
                     "duration": "200ms",
                     "fill": "both",
                     "iterations": "1",
@@ -570,7 +710,13 @@ aside {
                             "transform": "scale(1)"
                         }]
                     }]
-                }</script></amp-animation><amp-animation id="hideAnim" layout="nodisplay"><script type="application/json">{
+                }
+
+        </script>
+</amp-animation>
+<amp-animation id="hideAnim" layout="nodisplay">
+        <script type="application/json">
+                {
                     "duration": "200ms",
                     "fill": "both",
                     "iterations": "1",
@@ -583,4 +729,24 @@ aside {
                             "transform": "scale(0.1)"
                         }]
                     }]
-                }</script></amp-animation><div class="post-scroll-marker"><amp-position-observer on="enter:hideAnim.start; exit:showAnim.start" layout="nodisplay"></amp-position-observer></div><button class="post-scroll" on="tap:top.scrollTo(duration=200)">&#8593;</button><footer class="bottom">Powered by Publii</footer><amp-sidebar id="navbar-sidebar" layout="nodisplay"><ul></ul></amp-sidebar></body></html>
+                }
+
+            </script>
+</amp-animation>
+<div class="post-scroll-marker">
+     <amp-position-observer on="enter:hideAnim.start; exit:showAnim.start" layout="nodisplay">
+     </amp-position-observer>
+</div>        
+<button class="post-scroll" on="tap:top.scrollTo(duration=200)" >&#8593;</button>
+
+<footer class="bottom">Powered by Publii</footer>
+<amp-sidebar id="navbar-sidebar" layout="nodisplay">
+     <ul>
+    </ul>
+</amp-sidebar>
+
+
+
+
+</body>
+</html>

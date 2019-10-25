@@ -61,6 +61,14 @@
 </image:image>
 </url>
 <url>
+<loc>https://marlinspike.github.io/getting-vm-uptime-via-log-analytics/</loc>
+<lastmod>2019-10-25T10:02:03-04:00</lastmod>
+<image:image>
+<image:loc>https://marlinspike.github.io/media/posts/15/2019-10-25-Kusto-LogA-VM-Uptime.png</image:loc>
+<image:title><![CDATA[]]></image:title>
+</image:image>
+</url>
+<url>
 <loc>https://marlinspike.github.io/map-a-drive-on-a-vm-to-azure-files/</loc>
 <lastmod>2019-06-03T17:19:27-04:00</lastmod>
 </url>

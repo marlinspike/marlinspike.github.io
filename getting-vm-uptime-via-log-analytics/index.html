@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Getting VM Uptime via Log Analytics - reuBlog </title>
+        <meta name="description" content="Log Analytics is an excellent data aggregation tool for service telemetry, and while it's great at ingesting massive quantities of data, it can be a bit challenging to get something like telemetry information. Here's how you'd get VM Uptime via Log Analytics: let start_time=startofday(datetime("2019-10-01 00:00:00&hellip;" />
+        <meta name="robots" content="index, follow" /> 
+        <meta name="generator" content="Publii Open-Source CMS for Static Site" />
+        <link rel="canonical" href="https://marlinspike.github.io/getting-vm-uptime-via-log-analytics/">
+        <link rel="amphtml" href="https://marlinspike.github.io/amp/getting-vm-uptime-via-log-analytics/">
+        <link rel="alternate" type="application/atom+xml" href="https://marlinspike.github.io/feed.xml" />
+<link rel="alternate" type="application/json" href="https://marlinspike.github.io/feed.json" />
+
+        <meta property="og:title" content="Getting VM Uptime via Log Analytics" /><meta property="og:image" content="https://marlinspike.github.io/media/website/borneo.jpg"/><meta property="og:site_name" content="reuBlog" /><meta property="og:description" content="Log Analytics is an excellent data aggregation tool for service telemetry, and while it's great at ingesting massive quantities of data, it can be a bit challenging to get something like telemetry information. Here's how you'd get VM Uptime via Log Analytics: let start_time=startofday(datetime('2019-10-01 00:00:00&hellip;" /><meta property="og:url" content="https://marlinspike.github.io/getting-vm-uptime-via-log-analytics/" /><meta property="og:type" content="article" />
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+        <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700&amp;subset=latin-ext" rel="stylesheet">
+        <style>h1,h2,h3,h4,h5,h6,.btn,[type=button],[type=submit],button,.navbar .navbar__menu li,.navbar_mobile_sidebar .navbar__menu li,.feed__author,.post__tag,.post__share>a span,.post__nav-link>span,.footer{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"}body,h1,.h1,blockquote,.search__input,.author__name,.author__info>p,.feed__item h2,.post__nav-link{font-family:'PT Serif',Georgia,"Times New Roman",Times,serif}</style>
+        <link rel="stylesheet" href="https://marlinspike.github.io/assets/css/style.css?v=d2827d15573ecb061c72cba4248521a2">
+        <script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://marlinspike.github.io/getting-vm-uptime-via-log-analytics/"},"headline":"Getting VM Uptime via Log Analytics","datePublished":"2019-10-25T10:02","dateModified":"2019-10-25T10:02","image":{"@type":"ImageObject","url":"https://marlinspike.github.io/media/website/borneo.jpg","height":540,"width":960},"description":"Log Analytics is an excellent data aggregation tool for service telemetry, and while it's great at ingesting massive quantities of data, it can be a bit challenging to get something like telemetry information. Here's how you'd get VM Uptime via Log Analytics: let start_time=startofday(datetime(\"2019-10-01 00:00:00&hellip;","author":{"@type":"Person","name":"Reuben Cleetus"},"publisher":{"@type":"Organization","name":"Reuben Cleetus","logo":{"@type":"ImageObject","url":"https://marlinspike.github.io/media/website/borneo.jpg","height":540,"width":960}}}</script>
+        	<script async src="https://marlinspike.github.io/assets/js/lazysizes.min.js?v=9c0e65e25f8f098037678ba0c2be1d9f"></script>
+        
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-141184486-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-141184486-1');
+</script>
+
+    </head>
+    <body>
+        <div class="site-container">
+   <header class="top" id="js-header">
+      <a class="logo" href="https://marlinspike.github.io/">
+            <img src="https://marlinspike.github.io/media/website/borneo.jpg" alt="reuBlog">
+      </a>
+         <div class="search">
+            <div class="search__overlay js-search-overlay">
+               <div class="search__overlay-inner">
+                  <form action="https://marlinspike.github.io/search.html" class="search__form">
+                     <input
+                        class="search__input js-search-input"
+                        type="search"
+                        name="q"
+                        placeholder="search..."
+                        autofocus="autofocus"/>
+                  </form>
+                  <button class="search__close js-search-close" aria-label="Close">
+                     Close
+                  </button>
+               </div>
+            </div>
+            <button class="search__btn js-search-btn" aria-label="Search">
+               <svg role="presentation" focusable="false">
+                  <use xlink:href="https://marlinspike.github.io/assets/svg/svg-map.svg#search"/>
+               </svg>
+            </button>
+         </div>
+   </header>
+<main>
+      <article class="post">
+         <div class="hero">
+            <header class="hero__content">
+               <div class="wrapper">
+                     <div class="post__meta">
+                        <time datetime="2019-10-25T10:02">
+                              October 25, 2019
+                        </time>
+                     </div>
+                  <h1>
+                     Getting VM Uptime via Log Analytics
+                  </h1>
+                     <div class="post__meta post__meta--author">
+
+                           <a href="https://marlinspike.github.io/authors/reuben-cleetus/" class="feed__author invert">Reuben Cleetus</a>
+                     </div>
+               </div>
+            </header>
+         </div>
+          
+         <div class="wrapper post__entry">
+               <p>Log Analytics is an excellent data aggregation tool for service telemetry, and while it's great at ingesting massive quantities of data, it can be a bit challenging to get something like telemetry information.</p>
+<p>Here's how you'd get VM Uptime via Log Analytics:</p>
+<p> </p>
+<div>
+<div><code>let start_time=startofday(datetime("2019-10-01 00:00:00 AM"));</code></div>
+<div><code>let end_time=endofday(datetime("2019-10-31 11:59:59 PM"));</code></div>
+<div><code>Heartbeat</code></div>
+<div><code>| where TimeGenerated &gt; start_time and TimeGenerated &lt; end_time</code></div>
+<div><code>| summarize heartbeat_per_hour=count() by bin_at(TimeGenerated, 1h, start_time), Computer</code></div>
+<div><code>| extend available_per_hour=iff(heartbeat_per_hour&gt;0, true, false)</code></div>
+<div><code>| summarize total_available_hours=countif(available_per_hour==true) by Computer</code></div>
+<div><code>| extend total_number_of_buckets=round((end_time-start_time)/1h)</code></div>
+<div><code>| extend availability_rate=total_available_hours*100/total_number_of_buckets</code></div>
+<div> </div>
+<div><figure class="post__image"><img class="lazyload"  src="https://marlinspike.github.io/media/posts/15/responsive/2019-10-25-Kusto-LogA-VM-Uptime-xs.png" data-sizes="auto" data-srcset="https://marlinspike.github.io/media/posts/15/responsive/2019-10-25-Kusto-LogA-VM-Uptime-xs.png 300w ,https://marlinspike.github.io/media/posts/15/responsive/2019-10-25-Kusto-LogA-VM-Uptime-sm.png 480w ,https://marlinspike.github.io/media/posts/15/responsive/2019-10-25-Kusto-LogA-VM-Uptime-md.png 768w ,https://marlinspike.github.io/media/posts/15/responsive/2019-10-25-Kusto-LogA-VM-Uptime-lg.png 1024w ,https://marlinspike.github.io/media/posts/15/responsive/2019-10-25-Kusto-LogA-VM-Uptime-xl.png 1360w ,https://marlinspike.github.io/media/posts/15/responsive/2019-10-25-Kusto-LogA-VM-Uptime-2xl.png 1600w"  alt="" width="610" height="176"></figure></div>
+</div>
+         </div>
+
+            <footer class="wrapper post__footer">
+
+                     <p class="post__last-updated">
+                        This article was updated on
+                           October 25, 2019
+                     </p>
+
+
+                  <div class="post__share">
+                     
+                     
+                     
+                     
+                     
+                  </div>
+
+                  <div class="post__bio bio">
+                        <div class="bio__info">
+                           <h3 class="bio__name">
+                              <a href="https://marlinspike.github.io/authors/reuben-cleetus/" class="invert" rel="author">Reuben Cleetus</a>
+                           </h3>
+
+                        </div>
+                  </div>
+            </footer>
+      </article>
+
+            <nav class="post__nav">
+               <div class="post__nav-inner">
+                     <div class="post__nav-prev">
+                        <svg width="1.041em" height="0.416em" aria-hidden="true">
+                           <use xlink:href="https://marlinspike.github.io/assets/svg/svg-map.svg#arrow-prev"/>
+                        </svg>
+
+                        <a href="https://marlinspike.github.io/deleting-all-commit-history-from-github/" class="invert post__nav-link" rel="prev">
+                           <span>Previous</span>
+                           Deleting all commit history from Github
+                        </a>
+                     </div>
+               </div>
+            </nav>
+
+
+         <div class="post__comments">
+            <div class="wrapper">
+               <h2 class="h5">
+                  Comments
+               </h2>
+               <div id="disqus_thread"></div>
+               <script>
+                   var disqus_config = function () {
+                       this.page.url = 'https://marlinspike.github.io/getting-vm-uptime-via-log-analytics/';
+               		this.page.identifier = '15';
+                       this.page.title = ' Getting VM Uptime via Log Analytics';
+                   };
+               
+                   var disqus_loaded = false;
+               
+                   function publiiLoadDisqus() {
+                       if(disqus_loaded) {
+                           return false;
+                       }
+               
+                       var top = document.getElementById('disqus_thread').offsetTop;
+               
+                       if (!disqus_loaded && (window.scrollY || window.pageYOffset) + window.innerHeight > top) {
+                           disqus_loaded = true;
+               
+                           (function () {
+                               var d = document, s = d.createElement('script');
+                               s.src = 'https://.disqus.com/embed.js';
+                               s.setAttribute('data-timestamp', +new Date());
+                               (d.head || d.body).appendChild(s);
+                           })();
+                       }
+                   }
+               
+                   publiiLoadDisqus();
+               
+                   window.onscroll = function() {
+                       publiiLoadDisqus();
+                   };
+               </script>
+               <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+         </div>
+
+
+</main>
+<footer class="footer">
+        <div class="footer__copyright">
+            Powered by <a href="https://getpublii.com" target="_blank" rel="nofollow noopener">Publii Static CMS</a>
+        </div>
+       <button class="footer__bttop js-footer__bttop" aria-label="Back to top"> 
+           <svg>
+               <title>Back to top</title>
+               <use xlink:href="https://marlinspike.github.io/assets/svg/svg-map.svg#toparrow" />
+           </svg>
+       </button>   
+</footer>
+</div>
+
+<script>
+   window.publiiThemeMenuConfig = {    
+        mobileMenuMode: 'sidebar',
+        animationSpeed: 300,
+        submenuWidth: 'auto',
+        doubleClickTime: 500,
+        mobileMenuExpandableSubmenus: true, 
+        relatedContainerForOverlayMenuSelector: '.top',
+   };
+</script>
+<script defer src="https://marlinspike.github.io/assets/js/scripts.min.js?v=f56b13ba141d95ea2a0b7aab75ca9528"></script>
+
+<script>
+      var lazyFeaturedImage=function lazyFeaturedImage(){var b=document.querySelectorAll(".hero__image-img");for(var a=0;a<b.length;a++){var c=b[a];c.addEventListener("lazyloaded",function(f){var d=f.target.parentNode;d.classList.add("hero__image--overlay")})}};lazyFeaturedImage();
+   </script>
+
+
+</body>
+</html>
