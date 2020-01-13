@@ -11,6 +11,20 @@
     },
     "items": [
         {
+            "id": "https://marlinspike.github.io/resizing-a-disk-using-powershell/",
+            "url": "https://marlinspike.github.io/resizing-a-disk-using-powershell/",
+            "title": "Resizing a disk using PowerShell",
+            "summary": "Here's how you'd easily resize a VM disk in PowerShell. You can even run this script from the Cloud Shell. Connect-AzAccount $rgName = 'dev' $vmName = 'win10-vs' $vm = Get-AzVM -ResourceGroupName $rgName -Name $vmName Stop-AzVM -ResourceGroupName $rgName -Name $vmName $disk= Get-AzDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.OsDisk.Name&hellip;",
+            "content_html": "<p>Here's how you'd easily resize a VM disk in PowerShell. You can even run this script from the Cloud Shell.</p>\n<p> </p>\n<p><code>Connect-AzAccount</code><br><code>$rgName = 'dev'</code><br><code>$vmName = 'win10-vs'</code><br><br><code>$vm = Get-AzVM -ResourceGroupName $rgName -Name $vmName</code><br><code>Stop-AzVM -ResourceGroupName $rgName -Name $vmName</code><br><code>$disk= Get-AzDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.OsDisk.Name</code><br><code>$disk.DiskSizeGB = 4095</code><br><code>Update-AzDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name</code><br><code>Start-AzVM -ResourceGroupName $rgName -Name $vmName</code></p>\n<p> </p>",
+            "author": {
+                "name": "Reuben Cleetus"
+            },
+            "tags": [
+            ],
+            "date_published": "2020-01-13T17:00:21-05:00",
+            "date_modified": "2020-01-13T17:00:21-05:00"
+        },
+        {
             "id": "https://marlinspike.github.io/getting-vm-uptime-via-log-analytics/",
             "url": "https://marlinspike.github.io/getting-vm-uptime-via-log-analytics/",
             "title": "Getting VM Uptime via Log Analytics",
@@ -135,20 +149,6 @@
             ],
             "date_published": "2019-03-26T15:16:00-04:00",
             "date_modified": "2019-05-26T15:20:23-04:00"
-        },
-        {
-            "id": "https://marlinspike.github.io/create-an-azure-web-app-with-cli/",
-            "url": "https://marlinspike.github.io/create-an-azure-web-app-with-cli/",
-            "title": "Create an Azure Web App with CLI",
-            "summary": "#!/bin/bash # Replace the following URL with a public GitHub repo URL gitrepo=https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git# #Here's a PHP app you can use to test instead if you'd like #gitrepo=https://github.com/Azure-Samples/php-docs-hello-world #Name the web app webappname=mywebapp$RANDOM # Create a resource group. az group create --location westeurope --name myResourceGroup #&hellip;",
-            "content_html": "<p><code>#!/bin/bash</code><br><code></code></p>\n<p><code># Replace the following URL with a public GitHub repo URL</code><br><code>gitrepo=https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git#</code><br><br><code>#Here's a PHP app you can use to test instead if you'd like</code><br><code>#gitrepo=https://github.com/Azure-Samples/php-docs-hello-world</code><br><br><code>#Name the web app</code><br><code>webappname=mywebapp$RANDOM</code><br><br><code># Create a resource group.</code><br><code>az group create --location westeurope --name myResourceGroup</code><br><br><code># Create an App Service plan in `FREE` tier.</code><br><code>az appservice plan create --name $webappname --resource-group myResourceGroup --sku FREE</code><br><br><code># Create a web app.</code><br><code>az webapp create --name $webappname --resource-group myResourceGroup --plan $webappname</code><br><br><code># Deploy code from a public GitHub repository. </code><br><code>az webapp deployment source config --name $webappname --resource-group myResourceGroup \\</code><br><code>--repo-url $gitrepo --branch master --manual-integration</code><br><br><code># Copy the result of the following command into a browser to see the web app.</code><br><code>echo http://$webappname.azurewebsites.net</code></p>",
-            "author": {
-                "name": "Reuben Cleetus"
-            },
-            "tags": [
-            ],
-            "date_published": "2019-02-01T16:48:00-05:00",
-            "date_modified": "2019-05-24T17:17:58-04:00"
         }
     ]
 }
