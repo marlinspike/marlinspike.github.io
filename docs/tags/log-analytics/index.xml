@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>log-analytics on Reublog</title>
+    <link>http://example.org/tags/log-analytics/</link>
+    <description>Recent content in log-analytics on Reublog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Fri, 25 Oct 2019 14:40:21 -0500</lastBuildDate><atom:link href="http://example.org/tags/log-analytics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VM Uptime Log Analytics</title>
+      <link>http://example.org/posts/vm-uptime-log-analytics/</link>
+      <pubDate>Fri, 25 Oct 2019 14:40:21 -0500</pubDate>
+      
+      <guid>http://example.org/posts/vm-uptime-log-analytics/</guid>
+      <description>Log Analytics is an excellent data aggregation tool for service telemetry, and keeping some quick queries easily accessible is useful.
+Here&amp;rsquo;s how you&amp;rsquo;d get VM Uptime via Log Analytics:
+let start_time=startofday(datetime(&amp;quot;2019-10-01 00:00:00 AM&amp;quot;)); let end_time=endofday(datetime(&amp;quot;2019-10-31 11:59:59 PM&amp;quot;)); Heartbeat | where TimeGenerated &amp;gt; start_time and TimeGenerated &amp;lt; end_time | summarize heartbeat_per_hour=count() by bin_at(TimeGenerated, 1h, start_time), Computer | extend available_per_hour=iff(heartbeat_per_hour&amp;gt;0, true, false) | summarize total_available_hours=countif(available_per_hour==true) by Computer | extend total_number_of_buckets=round((end_time-start_time)/1h) | extend availability_rate=total_available_hours*100/total_number_of_buckets </description>
+    </item>
+    
+  </channel>
+</rss>

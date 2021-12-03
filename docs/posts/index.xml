@@ -1,29 +1,163 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Posts on Hello Friend NG</title>
+        <title>Posts on Reublog</title>
         <link>http://example.org/posts/</link>
-        <description>Recent content in Posts on Hello Friend NG</description>
+        <description>Recent content in Posts on Reublog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Fri, 03 Dec 2021 12:44:50 -0500</lastBuildDate>
+        <lastBuildDate>Fri, 03 Dec 2021 14:10:47 -0500</lastBuildDate>
         <atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
-            <title>1</title>
-            <link>http://example.org/posts/1/</link>
-            <pubDate>Fri, 03 Dec 2021 12:44:50 -0500</pubDate>
+            <title>Azure Vm Kind Cluster</title>
+            <link>http://example.org/posts/azure-vm-kind-cluster/</link>
+            <pubDate>Fri, 03 Dec 2021 14:10:47 -0500</pubDate>
             
-            <guid>http://example.org/posts/1/</guid>
-            <description>LONDON — Most vaccines are safe to use as boosters and give people more immunity against the coronavirus, according to a new study of seven of them.
-The mRNA vaccines by pharmaceutical giants Pfizer, with partner BioNTech, and Moderna appeared to give the highest boost of antibodies 28 days after the extra dose, though other vaccines in the study may take more time to build up better immunity.
-FAQ: What to know about the omicron variant of the coronavirus After the United States greenlit “mix-and-match” boosters, the Biden administration is now encouraging more people to get extra doses as scientists race to understand the newly identified omicron variant, which has spurred many countries to tighten restrictions.</description>
-            <content type="html"><![CDATA[<p>LONDON — Most vaccines are safe to use as boosters and give people more immunity against the coronavirus, according to a new study of seven of them.</p>
-<p>The mRNA vaccines by pharmaceutical giants Pfizer, with partner BioNTech, and Moderna appeared to give the highest boost of antibodies 28 days after the extra dose, though other vaccines in the study may take more time to build up better immunity.</p>
-<p>FAQ: What to know about the omicron variant of the coronavirus
-After the United States greenlit “mix-and-match” boosters, the Biden administration is now encouraging more people to get extra doses as scientists race to understand the newly identified omicron variant, which has spurred many countries to tighten restrictions.</p>
-<p>The new research on safety and immune response, published Thursday in British journal the Lancet, looks at how to “optimize selection of booster vaccines” by examining people who initially took two doses of either the Pfizer-BioNTech or the Oxford-AstraZeneca vaccine. The United States has not authorized the Oxford-AstraZeneca shot.</p>
-<p>The immunized participants got a range of boosters, including the experimental shot from the company CureVac that was pulled after less effective results. The others included Johnson &amp; Johnson, Moderna, AstraZeneca and Pfizer-BioNTech, as well as the Novavax and Valneva vaccines, which are under review in Europe.</p>
+            <guid>http://example.org/posts/azure-vm-kind-cluster/</guid>
+            <description>Create the VM in Azure
+ Ubuntu VM  Install Docker sudo apt-get update sudo apt-get install \ apt-transport-https \ ca-certificates \ curl \ gnupg \ lsb-release Add Docker’s official GPG key:
+ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg Set up the Stable repository
+echo \ &amp;quot;deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \ $(lsb_release -cs) stable&amp;quot; | sudo tee /etc/apt/sources.list.d/docker.list &amp;gt; /dev/null Install Docker Engine sudo apt-get update sudo apt install docker.</description>
+            <content type="html"><![CDATA[<p><strong>Create the VM in Azure</strong></p>
+<ul>
+<li>Ubuntu VM</li>
+</ul>
+<h3 id="install-docker">Install Docker</h3>
+<pre tabindex="0"><code>sudo apt-get update
+
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+</code></pre><p>Add Docker’s official GPG key:</p>
+<pre tabindex="0"><code>     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+    
+</code></pre><p><strong>Set up the Stable repository</strong></p>
+<pre tabindex="0"><code>echo \
+  &quot;deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable&quot; | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+</code></pre><h3 id="install-docker-engine">Install Docker Engine</h3>
+<pre tabindex="0"><code>sudo apt-get update
+sudo apt install docker.io
+</code></pre><h3 id="test">Test</h3>
+<pre tabindex="0"><code>sudo docker run hello-world
+</code></pre><h3 id="kind-cluster-yaml">KIND Cluster YAML</h3>
+<pre tabindex="0"><code>kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+- role: worker
+  extraPortMappings:
+  - containerPort: 80
+    hostPort: 80
+    listenAddress: &quot;127.0.0.1&quot;
+- role: worker
+</code></pre><h3 id="create-the-kind-cluster">Create the KIND Cluster</h3>
+<pre tabindex="0"><code>sudo kind create cluster --config kind_cluster.yaml --name kind-cluster
+</code></pre>]]></content>
+        </item>
+        
+        <item>
+            <title>Hugo Boss</title>
+            <link>http://example.org/posts/hugo-boss/</link>
+            <pubDate>Fri, 03 Dec 2021 13:04:24 -0500</pubDate>
+            
+            <guid>http://example.org/posts/hugo-boss/</guid>
+            <description>Blogging on Hugo</description>
+            <content type="html"><![CDATA[<p>Blogging on Hugo</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>VM Uptime Log Analytics</title>
+            <link>http://example.org/posts/vm-uptime-log-analytics/</link>
+            <pubDate>Fri, 25 Oct 2019 14:40:21 -0500</pubDate>
+            
+            <guid>http://example.org/posts/vm-uptime-log-analytics/</guid>
+            <description>Log Analytics is an excellent data aggregation tool for service telemetry, and keeping some quick queries easily accessible is useful.
+Here&amp;rsquo;s how you&amp;rsquo;d get VM Uptime via Log Analytics:
+let start_time=startofday(datetime(&amp;quot;2019-10-01 00:00:00 AM&amp;quot;)); let end_time=endofday(datetime(&amp;quot;2019-10-31 11:59:59 PM&amp;quot;)); Heartbeat | where TimeGenerated &amp;gt; start_time and TimeGenerated &amp;lt; end_time | summarize heartbeat_per_hour=count() by bin_at(TimeGenerated, 1h, start_time), Computer | extend available_per_hour=iff(heartbeat_per_hour&amp;gt;0, true, false) | summarize total_available_hours=countif(available_per_hour==true) by Computer | extend total_number_of_buckets=round((end_time-start_time)/1h) | extend availability_rate=total_available_hours*100/total_number_of_buckets </description>
+            <content type="html"><![CDATA[<p>Log Analytics is an excellent data aggregation tool for service telemetry, and keeping some quick queries easily accessible is useful.</p>
+<p>Here&rsquo;s how you&rsquo;d get VM Uptime via Log Analytics:</p>
+<pre tabindex="0"><code>let start_time=startofday(datetime(&quot;2019-10-01 00:00:00 AM&quot;));
+let end_time=endofday(datetime(&quot;2019-10-31 11:59:59 PM&quot;));
+Heartbeat
+| where TimeGenerated &gt; start_time and TimeGenerated &lt; end_time
+| summarize heartbeat_per_hour=count() by bin_at(TimeGenerated, 1h, start_time), Computer
+| extend available_per_hour=iff(heartbeat_per_hour&gt;0, true, false)
+| summarize total_available_hours=countif(available_per_hour==true) by Computer
+| extend total_number_of_buckets=round((end_time-start_time)/1h)
+| extend availability_rate=total_available_hours*100/total_number_of_buckets
+</code></pre>]]></content>
+        </item>
+        
+        <item>
+            <title>AzureSQL Failover Group</title>
+            <link>http://example.org/posts/azuresql-failover-group/</link>
+            <pubDate>Fri, 26 Apr 2019 14:36:18 -0500</pubDate>
+            
+            <guid>http://example.org/posts/azuresql-failover-group/</guid>
+            <description>Failover Groups (FG) are one of the features of Azure SQL that sprinkle magic dust upon it &amp;ndash; set one up, add a database to it, and you&amp;rsquo;re automatically replicating to a remote region of your choice, and can failover at will if you like. An FG requires a Primary and a Secondard server: The primary is easy &amp;ndash; it&amp;rsquo;s the one the databas(es) you want to protect are hosted on; the secondard is any other database in any other region (must be another region), where you want the FG to asynchronously replicate your database to, and where you&amp;rsquo;d like to automatically failover to if the primary region were to become unavailable.</description>
+            <content type="html"><![CDATA[<p>Failover Groups (FG) are one of the features of Azure SQL that sprinkle magic dust upon it &ndash; set one up, add a database to it, and you&rsquo;re automatically replicating to a remote region of your choice, and can failover at will if you like. An FG requires a Primary and a Secondard server: The primary is easy &ndash; it&rsquo;s the one the databas(es) you want to protect are hosted on; the secondard is any other database in any other region (must be another region), where you want the FG to asynchronously replicate your database to, and where you&rsquo;d like to automatically failover to if the primary region were to become unavailable.</p>
+<p>It&rsquo;s pretty easy to go about creating an FG, and these steps below walk you through it:</p>
+<h4 id="create-failover-group">Create failover group</h4>
+<p><code>az sql failover-group create --name myfailovergroup --server myprimarydbserver --partner-server mysecondarydbserver --resource-group myRG</code></p>
+<h4 id="add-existing-db-to-the-failover-group">Add existing DB to the failover group</h4>
+<p><code>az sql failover-group update -n myfailovergroup --resource-group myRG --server myprimarydbserver --add-db db_test</code></p>
+<p>And that&rsquo;s it. Modify the script to suit the specific names of resources you have, and you&rsquo;re good to go. The FG jumps to life immediately and starts asynchronously replicating data to the secondary region, and you&rsquo;ll be able to even simulate a failover once that&rsquo;s done. Remember, the first time will likely take you the longest to replicate, as it&rsquo;s basically moving all the data from primary to secondary.</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Easily Build Dotnet Core Container</title>
+            <link>http://example.org/posts/easy-build-dotnet-core-container/</link>
+            <pubDate>Tue, 26 Mar 2019 14:30:38 -0500</pubDate>
+            
+            <guid>http://example.org/posts/easy-build-dotnet-core-container/</guid>
+            <description>Whether you&amp;rsquo;re a Docker pro or just learning about it, you&amp;rsquo;re doubtless come across scenarios for migrating demo apps to a Docker container running your development box. That&amp;rsquo;s fine, but how about getting some more mileage and seeing it run in the cloud, as a PaaS app, where you&amp;rsquo;ve now taken advantage of Docker goodness to abstract away environment prep, and added Platform goodness by abstracting away all envrionment management too.</description>
+            <content type="html"><![CDATA[<p>Whether you&rsquo;re a Docker pro or just learning about it, you&rsquo;re doubtless come across scenarios for migrating demo apps to a Docker container running your development box. That&rsquo;s fine, but how about getting some more mileage and seeing it run in the cloud, as a PaaS app, where you&rsquo;ve now taken advantage of Docker goodness to abstract away environment prep, and added Platform goodness by abstracting away all envrionment management too.</p>
+<p>Lets dive right into it with a short and sweet recipe for all  your Dotnet Core apps!</p>
+<p>The tools we&rsquo;re going to use:</p>
+<ul>
+<li>Docker - Create the Docker image. We&rsquo;re going to use multi-stage builds, so you&rsquo;d need to be on Docker 17.05 or later</li>
+<li>Azure Container Registry - Host the Docker image in Azure. You can use Docker Hub too, just change the appropriate URLs</li>
+<li>Azure Container Instance - Simple, easy, no-handlebars service to run any Docker container in Azure.</li>
+</ul>
+<h4 id="step-1-containerize-the-donet-core-app">Step 1: Containerize the Donet Core App</h4>
+<p>At the root directory of your dotnet core app, create a text file called simply &ldquo;Dockerfile&rdquo;. This is the file that&rsquo;s used to instruct Docker Build to create a custom image based upon various other layers we&rsquo;ll provide. Here&rsquo;s the Dockerfile:</p>
+<pre tabindex="0"><code>FROM microsoft/dotnet:sdk AS build-env
+WORKDIR /app
+
+# Copy csproj and restore as distinct layers
+COPY *.csproj ./
+RUN dotnet restore
+
+# Copy everything else and build
+COPY . ./
+RUN dotnet publish -c Release -o out
+
+# Build runtime image
+FROM microsoft/dotnet:aspnetcore-runtime
+WORKDIR /app
+COPY --from=build-env /app/out .
+ENTRYPOINT [&quot;dotnet&quot;, &quot;BasicWebApp.dll&quot;]
+</code></pre><h4 id="step-2-create-the-image">Step 2: Create the image</h4>
+<p>Still at the root directory where your Dockerfile was created, run the following command to create your image. Replace &lt;REGISTRY_NAME&gt; with a name of your choosing. You&rsquo;ll need that name for the next step as well</p>
+<p><code>az acr build --registry &lt;REGISTRY_NAME&gt; --image basicwebapp:v2 .</code></p>
+<h4 id="step-3-launch-an-azure-container-instance-based-on-the-image">Step 3: Launch an Azure Container Instance based on the image</h4>
+<p>You&rsquo;ll need the following pieces of information for this step:</p>
+<ul>
+<li>Registry Name from the previous step</li>
+<li>Registry username</li>
+<li>Registry password</li>
+<li>DNS Label: Any name you&rsquo;d like to give your container, so that you can navigate to it by the following URI - pattern: https://<!-- raw HTML omitted -->.azurecr.io
+<code>az container create --name bwacontainer --resource-group Registry --image &lt;REGISTRY_NAME&gt;.azurecr.io/basicwebapp:v2 --registry-login-server &lt;REGISTRY_NAME&gt;.azurecr.io --registry-username &lt;REGISTRY_USERNAME&gt; -n bwacontainer --registry-password &lt;REGISTRY_PASSWORD&gt;  --dns-name-label &lt;DNS_LABEL&gt;</code></li>
+</ul>
+<h4 id="step-4-launch-the-site">Step 4: Launch the site</h4>
+<p>Navigate to the url: https://&lt;dns_label&gt;.azurecr.io</p>
 ]]></content>
         </item>
         

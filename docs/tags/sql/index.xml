@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sql on Reublog</title>
+    <link>http://example.org/tags/sql/</link>
+    <description>Recent content in sql on Reublog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Fri, 26 Apr 2019 14:36:18 -0500</lastBuildDate><atom:link href="http://example.org/tags/sql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AzureSQL Failover Group</title>
+      <link>http://example.org/posts/azuresql-failover-group/</link>
+      <pubDate>Fri, 26 Apr 2019 14:36:18 -0500</pubDate>
+      
+      <guid>http://example.org/posts/azuresql-failover-group/</guid>
+      <description>Failover Groups (FG) are one of the features of Azure SQL that sprinkle magic dust upon it &amp;ndash; set one up, add a database to it, and you&amp;rsquo;re automatically replicating to a remote region of your choice, and can failover at will if you like. An FG requires a Primary and a Secondard server: The primary is easy &amp;ndash; it&amp;rsquo;s the one the databas(es) you want to protect are hosted on; the secondard is any other database in any other region (must be another region), where you want the FG to asynchronously replicate your database to, and where you&amp;rsquo;d like to automatically failover to if the primary region were to become unavailable.</description>
+    </item>
+    
+  </channel>
+</rss>
