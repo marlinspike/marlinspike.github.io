@@ -1,4 +1,4 @@
-baseURL      = 'http://example.org/'
+baseURL      = 'https://marlinspike.github.io/'
 # baseurl    = "localhost"
 title        = "My Blog"
 languageCode = "en-us"
