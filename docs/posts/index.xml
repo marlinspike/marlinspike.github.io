@@ -1,0 +1,31 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Posts on Hello Friend NG</title>
+        <link>http://example.org/posts/</link>
+        <description>Recent content in Posts on Hello Friend NG</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+        <lastBuildDate>Fri, 03 Dec 2021 12:44:50 -0500</lastBuildDate>
+        <atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>1</title>
+            <link>http://example.org/posts/1/</link>
+            <pubDate>Fri, 03 Dec 2021 12:44:50 -0500</pubDate>
+            
+            <guid>http://example.org/posts/1/</guid>
+            <description>LONDON — Most vaccines are safe to use as boosters and give people more immunity against the coronavirus, according to a new study of seven of them.
+The mRNA vaccines by pharmaceutical giants Pfizer, with partner BioNTech, and Moderna appeared to give the highest boost of antibodies 28 days after the extra dose, though other vaccines in the study may take more time to build up better immunity.
+FAQ: What to know about the omicron variant of the coronavirus After the United States greenlit “mix-and-match” boosters, the Biden administration is now encouraging more people to get extra doses as scientists race to understand the newly identified omicron variant, which has spurred many countries to tighten restrictions.</description>
+            <content type="html"><![CDATA[<p>LONDON — Most vaccines are safe to use as boosters and give people more immunity against the coronavirus, according to a new study of seven of them.</p>
+<p>The mRNA vaccines by pharmaceutical giants Pfizer, with partner BioNTech, and Moderna appeared to give the highest boost of antibodies 28 days after the extra dose, though other vaccines in the study may take more time to build up better immunity.</p>
+<p>FAQ: What to know about the omicron variant of the coronavirus
+After the United States greenlit “mix-and-match” boosters, the Biden administration is now encouraging more people to get extra doses as scientists race to understand the newly identified omicron variant, which has spurred many countries to tighten restrictions.</p>
+<p>The new research on safety and immune response, published Thursday in British journal the Lancet, looks at how to “optimize selection of booster vaccines” by examining people who initially took two doses of either the Pfizer-BioNTech or the Oxford-AstraZeneca vaccine. The United States has not authorized the Oxford-AstraZeneca shot.</p>
+<p>The immunized participants got a range of boosters, including the experimental shot from the company CureVac that was pulled after less effective results. The others included Johnson &amp; Johnson, Moderna, AstraZeneca and Pfizer-BioNTech, as well as the Novavax and Valneva vaccines, which are under review in Europe.</p>
+]]></content>
+        </item>
+        
+    </channel>
+</rss>
