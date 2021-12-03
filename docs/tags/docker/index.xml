@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>docker on Reublog</title>
-    <link>http://example.org/tags/docker/</link>
+    <link>https://marlinspike.github.io/tags/docker/</link>
     <description>Recent content in docker on Reublog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Tue, 26 Mar 2019 14:30:38 -0500</lastBuildDate><atom:link href="http://example.org/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 26 Mar 2019 14:30:38 -0500</lastBuildDate><atom:link href="https://marlinspike.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Easily Build Dotnet Core Container</title>
-      <link>http://example.org/posts/easy-build-dotnet-core-container/</link>
+      <link>https://marlinspike.github.io/posts/easy-build-dotnet-core-container/</link>
       <pubDate>Tue, 26 Mar 2019 14:30:38 -0500</pubDate>
       
-      <guid>http://example.org/posts/easy-build-dotnet-core-container/</guid>
+      <guid>https://marlinspike.github.io/posts/easy-build-dotnet-core-container/</guid>
       <description>Whether you&amp;rsquo;re a Docker pro or just learning about it, you&amp;rsquo;re doubtless come across scenarios for migrating demo apps to a Docker container running your development box. That&amp;rsquo;s fine, but how about getting some more mileage and seeing it run in the cloud, as a PaaS app, where you&amp;rsquo;ve now taken advantage of Docker goodness to abstract away environment prep, and added Platform goodness by abstracting away all envrionment management too.</description>
     </item>
     

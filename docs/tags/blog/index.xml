@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>blog on Reublog</title>
-    <link>http://example.org/tags/blog/</link>
+    <link>https://marlinspike.github.io/tags/blog/</link>
     <description>Recent content in blog on Reublog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Fri, 03 Dec 2021 13:04:24 -0500</lastBuildDate><atom:link href="http://example.org/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 Dec 2021 13:04:24 -0500</lastBuildDate><atom:link href="https://marlinspike.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo Boss</title>
-      <link>http://example.org/posts/hugo-boss/</link>
+      <link>https://marlinspike.github.io/posts/hugo-boss/</link>
       <pubDate>Fri, 03 Dec 2021 13:04:24 -0500</pubDate>
       
-      <guid>http://example.org/posts/hugo-boss/</guid>
+      <guid>https://marlinspike.github.io/posts/hugo-boss/</guid>
       <description>Blogging on Hugo</description>
     </item>
     

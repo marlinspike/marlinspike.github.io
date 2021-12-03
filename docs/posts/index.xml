@@ -1,20 +1,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Posts on Reublog</title>
-        <link>http://example.org/posts/</link>
+        <link>https://marlinspike.github.io/posts/</link>
         <description>Recent content in Posts on Reublog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
         <lastBuildDate>Fri, 03 Dec 2021 14:10:47 -0500</lastBuildDate>
-        <atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://marlinspike.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
             <title>Azure Vm Kind Cluster</title>
-            <link>http://example.org/posts/azure-vm-kind-cluster/</link>
+            <link>https://marlinspike.github.io/posts/azure-vm-kind-cluster/</link>
             <pubDate>Fri, 03 Dec 2021 14:10:47 -0500</pubDate>
             
-            <guid>http://example.org/posts/azure-vm-kind-cluster/</guid>
+            <guid>https://marlinspike.github.io/posts/azure-vm-kind-cluster/</guid>
             <description>Create the VM in Azure
  Ubuntu VM  Install Docker sudo apt-get update sudo apt-get install \ apt-transport-https \ ca-certificates \ curl \ gnupg \ lsb-release Add Docker’s official GPG key:
  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg Set up the Stable repository
@@ -62,10 +62,10 @@ nodes:
         
         <item>
             <title>Hugo Boss</title>
-            <link>http://example.org/posts/hugo-boss/</link>
+            <link>https://marlinspike.github.io/posts/hugo-boss/</link>
             <pubDate>Fri, 03 Dec 2021 13:04:24 -0500</pubDate>
             
-            <guid>http://example.org/posts/hugo-boss/</guid>
+            <guid>https://marlinspike.github.io/posts/hugo-boss/</guid>
             <description>Blogging on Hugo</description>
             <content type="html"><![CDATA[<p>Blogging on Hugo</p>
 ]]></content>
@@ -73,10 +73,10 @@ nodes:
         
         <item>
             <title>VM Uptime Log Analytics</title>
-            <link>http://example.org/posts/vm-uptime-log-analytics/</link>
+            <link>https://marlinspike.github.io/posts/vm-uptime-log-analytics/</link>
             <pubDate>Fri, 25 Oct 2019 14:40:21 -0500</pubDate>
             
-            <guid>http://example.org/posts/vm-uptime-log-analytics/</guid>
+            <guid>https://marlinspike.github.io/posts/vm-uptime-log-analytics/</guid>
             <description>Log Analytics is an excellent data aggregation tool for service telemetry, and keeping some quick queries easily accessible is useful.
 Here&amp;rsquo;s how you&amp;rsquo;d get VM Uptime via Log Analytics:
 let start_time=startofday(datetime(&amp;quot;2019-10-01 00:00:00 AM&amp;quot;)); let end_time=endofday(datetime(&amp;quot;2019-10-31 11:59:59 PM&amp;quot;)); Heartbeat | where TimeGenerated &amp;gt; start_time and TimeGenerated &amp;lt; end_time | summarize heartbeat_per_hour=count() by bin_at(TimeGenerated, 1h, start_time), Computer | extend available_per_hour=iff(heartbeat_per_hour&amp;gt;0, true, false) | summarize total_available_hours=countif(available_per_hour==true) by Computer | extend total_number_of_buckets=round((end_time-start_time)/1h) | extend availability_rate=total_available_hours*100/total_number_of_buckets </description>
@@ -96,10 +96,10 @@ Heartbeat
         
         <item>
             <title>AzureSQL Failover Group</title>
-            <link>http://example.org/posts/azuresql-failover-group/</link>
+            <link>https://marlinspike.github.io/posts/azuresql-failover-group/</link>
             <pubDate>Fri, 26 Apr 2019 14:36:18 -0500</pubDate>
             
-            <guid>http://example.org/posts/azuresql-failover-group/</guid>
+            <guid>https://marlinspike.github.io/posts/azuresql-failover-group/</guid>
             <description>Failover Groups (FG) are one of the features of Azure SQL that sprinkle magic dust upon it &amp;ndash; set one up, add a database to it, and you&amp;rsquo;re automatically replicating to a remote region of your choice, and can failover at will if you like. An FG requires a Primary and a Secondard server: The primary is easy &amp;ndash; it&amp;rsquo;s the one the databas(es) you want to protect are hosted on; the secondard is any other database in any other region (must be another region), where you want the FG to asynchronously replicate your database to, and where you&amp;rsquo;d like to automatically failover to if the primary region were to become unavailable.</description>
             <content type="html"><![CDATA[<p>Failover Groups (FG) are one of the features of Azure SQL that sprinkle magic dust upon it &ndash; set one up, add a database to it, and you&rsquo;re automatically replicating to a remote region of your choice, and can failover at will if you like. An FG requires a Primary and a Secondard server: The primary is easy &ndash; it&rsquo;s the one the databas(es) you want to protect are hosted on; the secondard is any other database in any other region (must be another region), where you want the FG to asynchronously replicate your database to, and where you&rsquo;d like to automatically failover to if the primary region were to become unavailable.</p>
 <p>It&rsquo;s pretty easy to go about creating an FG, and these steps below walk you through it:</p>
@@ -113,10 +113,10 @@ Heartbeat
         
         <item>
             <title>Easily Build Dotnet Core Container</title>
-            <link>http://example.org/posts/easy-build-dotnet-core-container/</link>
+            <link>https://marlinspike.github.io/posts/easy-build-dotnet-core-container/</link>
             <pubDate>Tue, 26 Mar 2019 14:30:38 -0500</pubDate>
             
-            <guid>http://example.org/posts/easy-build-dotnet-core-container/</guid>
+            <guid>https://marlinspike.github.io/posts/easy-build-dotnet-core-container/</guid>
             <description>Whether you&amp;rsquo;re a Docker pro or just learning about it, you&amp;rsquo;re doubtless come across scenarios for migrating demo apps to a Docker container running your development box. That&amp;rsquo;s fine, but how about getting some more mileage and seeing it run in the cloud, as a PaaS app, where you&amp;rsquo;ve now taken advantage of Docker goodness to abstract away environment prep, and added Platform goodness by abstracting away all envrionment management too.</description>
             <content type="html"><![CDATA[<p>Whether you&rsquo;re a Docker pro or just learning about it, you&rsquo;re doubtless come across scenarios for migrating demo apps to a Docker container running your development box. That&rsquo;s fine, but how about getting some more mileage and seeing it run in the cloud, as a PaaS app, where you&rsquo;ve now taken advantage of Docker goodness to abstract away environment prep, and added Platform goodness by abstracting away all envrionment management too.</p>
 <p>Lets dive right into it with a short and sweet recipe for all  your Dotnet Core apps!</p>

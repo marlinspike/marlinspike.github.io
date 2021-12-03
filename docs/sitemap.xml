@@ -2,68 +2,68 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://example.org/tags/azure/</loc>
+    <loc>https://marlinspike.github.io/tags/azure/</loc>
     <lastmod>2021-12-03T14:10:47-05:00</lastmod>
   </url><url>
-    <loc>http://example.org/posts/azure-vm-kind-cluster/</loc>
+    <loc>https://marlinspike.github.io/posts/azure-vm-kind-cluster/</loc>
     <lastmod>2021-12-03T14:10:47-05:00</lastmod>
   </url><url>
-    <loc>http://example.org/tags/kind/</loc>
+    <loc>https://marlinspike.github.io/tags/kind/</loc>
     <lastmod>2021-12-03T14:10:47-05:00</lastmod>
   </url><url>
-    <loc>http://example.org/tags/kubernetes/</loc>
+    <loc>https://marlinspike.github.io/tags/kubernetes/</loc>
     <lastmod>2021-12-03T14:10:47-05:00</lastmod>
   </url><url>
-    <loc>http://example.org/posts/</loc>
+    <loc>https://marlinspike.github.io/posts/</loc>
     <lastmod>2021-12-03T14:10:47-05:00</lastmod>
   </url><url>
-    <loc>http://example.org/</loc>
+    <loc>https://marlinspike.github.io/</loc>
     <lastmod>2021-12-03T14:10:47-05:00</lastmod>
   </url><url>
-    <loc>http://example.org/tags/</loc>
+    <loc>https://marlinspike.github.io/tags/</loc>
     <lastmod>2021-12-03T14:10:47-05:00</lastmod>
   </url><url>
-    <loc>http://example.org/tags/vm/</loc>
+    <loc>https://marlinspike.github.io/tags/vm/</loc>
     <lastmod>2021-12-03T14:10:47-05:00</lastmod>
   </url><url>
-    <loc>http://example.org/tags/blog/</loc>
+    <loc>https://marlinspike.github.io/tags/blog/</loc>
     <lastmod>2021-12-03T13:04:24-05:00</lastmod>
   </url><url>
-    <loc>http://example.org/posts/hugo-boss/</loc>
+    <loc>https://marlinspike.github.io/posts/hugo-boss/</loc>
     <lastmod>2021-12-03T13:04:24-05:00</lastmod>
   </url><url>
-    <loc>http://example.org/tags/public/</loc>
+    <loc>https://marlinspike.github.io/tags/public/</loc>
     <lastmod>2021-12-03T13:04:24-05:00</lastmod>
   </url><url>
-    <loc>http://example.org/tags/log-analytics/</loc>
+    <loc>https://marlinspike.github.io/tags/log-analytics/</loc>
     <lastmod>2019-10-25T14:40:21-05:00</lastmod>
   </url><url>
-    <loc>http://example.org/posts/vm-uptime-log-analytics/</loc>
+    <loc>https://marlinspike.github.io/posts/vm-uptime-log-analytics/</loc>
     <lastmod>2019-10-25T14:40:21-05:00</lastmod>
   </url><url>
-    <loc>http://example.org/tags/vm-uptime/</loc>
+    <loc>https://marlinspike.github.io/tags/vm-uptime/</loc>
     <lastmod>2019-10-25T14:40:21-05:00</lastmod>
   </url><url>
-    <loc>http://example.org/posts/azuresql-failover-group/</loc>
+    <loc>https://marlinspike.github.io/posts/azuresql-failover-group/</loc>
     <lastmod>2019-04-26T14:36:18-05:00</lastmod>
   </url><url>
-    <loc>http://example.org/tags/failover-group/</loc>
+    <loc>https://marlinspike.github.io/tags/failover-group/</loc>
     <lastmod>2019-04-26T14:36:18-05:00</lastmod>
   </url><url>
-    <loc>http://example.org/tags/sql/</loc>
+    <loc>https://marlinspike.github.io/tags/sql/</loc>
     <lastmod>2019-04-26T14:36:18-05:00</lastmod>
   </url><url>
-    <loc>http://example.org/tags/docker/</loc>
+    <loc>https://marlinspike.github.io/tags/docker/</loc>
     <lastmod>2019-03-26T14:30:38-05:00</lastmod>
   </url><url>
-    <loc>http://example.org/tags/dotnet/</loc>
+    <loc>https://marlinspike.github.io/tags/dotnet/</loc>
     <lastmod>2019-03-26T14:30:38-05:00</lastmod>
   </url><url>
-    <loc>http://example.org/posts/easy-build-dotnet-core-container/</loc>
+    <loc>https://marlinspike.github.io/posts/easy-build-dotnet-core-container/</loc>
     <lastmod>2019-03-26T14:30:38-05:00</lastmod>
   </url><url>
-    <loc>http://example.org/blog/</loc>
+    <loc>https://marlinspike.github.io/blog/</loc>
   </url><url>
-    <loc>http://example.org/series/</loc>
+    <loc>https://marlinspike.github.io/series/</loc>
   </url>
 </urlset>
